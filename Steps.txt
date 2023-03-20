@@ -11,3 +11,22 @@
              
         </div>
 </div>
+
+3. background image
+
+                #css: create folder on src > images > nav-arrow.png
+
+.owl-carousel .owl-nav button.owl-prev span{
+	
+	background-image: url(./images/nav-arrow.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 18px 53px;
+	display: inline-block;
+	transform: rotate(180deg);
+}
+
+<div className=" owl-prev" >  </div>
+
+                ## js ##
+

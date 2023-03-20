@@ -1385,7 +1385,7 @@ textarea {
   height: 100%;
   width: 85px;
 }
-.owl-carousel .owl-nav button.owl-prev span{
+/* .owl-carousel .owl-nav button.owl-prev span{
 	font-size: 0;
 	width: 18px;
 	height: 53px;
@@ -1395,7 +1395,7 @@ textarea {
 	background-size: 18px 53px;
 	display: inline-block;
 	transform: rotate(180deg);
-}
+} */
 .owl-carousel .owl-nav button.owl-next{
   position: absolute;
   right: 0;
@@ -1403,7 +1403,7 @@ textarea {
   height: 100%;
   width: 85px;
 }
-.owl-carousel .owl-nav button.owl-next span{
+/* .owl-carousel .owl-nav button.owl-next span{
 	font-size: 0;
 	width: 18px;
 	height: 53px;
@@ -1412,7 +1412,7 @@ textarea {
 	background-position: left center;
 	background-size: 18px 53px;
 	display: inline-block;
-}
+} */
 .owl-theme .owl-nav [class*='owl-']:hover{
   background: none;
   

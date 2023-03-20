@@ -1,11 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import favicon from "../images/favicon.png";
+// import IMAGES from './images/index.js';
 
 export default function Header() {
   return (
     <>
       <header className="mainheaderSec">
         <div className="menuwrap-parent">
+          {/* <div style={{
+            width: '150px',
+            height:'150px',
+            backgroundImage: `url($(favicon))`
+          }}> </div> */}
           <div className="menuwrap">
             {/* <Link to="/" className="translation-link">
               <p className="translation-icon zhlang" data-no-translation>
@@ -28,9 +35,7 @@ export default function Header() {
                   id="menu-item-5901"
                   className="all menu-item menu-item-type-post_type menu-item-object-page menu-item-5901"
                 >
-                  <Link to="design-projects">
-                    Design Projects
-                  </Link>
+                  <Link to="design-projects">Design Projects</Link>
                 </li>
                 <li
                   id="menu-item-5902"
@@ -48,15 +53,13 @@ export default function Header() {
                   id="menu-item-5904"
                   className="museums menu-item menu-item-type-post_type menu-item-object-page menu-item-5904"
                 >
-                  <Link to="construction-projects">Construction  Projects </Link>
+                  <Link to="construction-projects">Construction Projects </Link>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </header>
-
-      
     </>
   );
 }
