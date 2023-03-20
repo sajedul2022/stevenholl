@@ -39,7 +39,8 @@
 
 /* custom css */
 
-.post, .page {
+.post,
+.page {
   margin: -24px 0 0 0;
 }
 
@@ -49,8 +50,9 @@ i {
 
 /* banner text  */
 
-.item h2 a, .item h2 {
-  color: #FFF;
+.item h2 a,
+.item h2 {
+  color: #fff;
   text-decoration: none;
   font-size: 16px;
   line-height: 1.5;
@@ -60,25 +62,79 @@ i {
 
 /* slider */
 
-.owl-carousel .owl-nav button.owl-prev span{
-	font-size: 0;
-	width: 18px;
-	height: 53px;
-	background-image: url(./images/nav-arrow.png);
-	background-repeat: no-repeat;
-	background-position: left center;
-	background-size: 18px 53px;
-	display: inline-block;
-	transform: rotate(180deg);
+.owl-carousel .owl-nav button.owl-prev span {
+  font-size: 0;
+  width: 18px;
+  height: 53px;
+  background-image: url(./images/nav-arrow.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 18px 53px;
+  display: inline-block;
+  transform: rotate(180deg);
 }
 
-.owl-carousel .owl-nav button.owl-next span{
-	font-size: 0;
-	width: 18px;
-	height: 53px;
-	background-image: url(./images/nav-arrow.png);
-	background-repeat: no-repeat;
-	background-position: left center;
-	background-size: 18px 53px;
-	display: inline-block;
+.owl-carousel .owl-nav button.owl-next span {
+  font-size: 0;
+  width: 18px;
+  height: 53px;
+  background-image: url(./images/nav-arrow.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 18px 53px;
+  display: inline-block;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light a {
+  text-decoration: none;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  header.mainheaderSec {
+    display: none;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  header.mainheaderSec {
+    display: none;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  header.mainheaderSec {
+    display: none;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    display: none;
+  }
+
+  header.mainheaderSec {
+    display: block;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    display: none;
+  }
+
+  header.mainheaderSec {
+    display: block;
+  }
+}
+
+
+.navbar-nav-scroll {
+  max-height: max-content !important;
 }

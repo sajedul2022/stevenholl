@@ -14,7 +14,12 @@
 
 3. background image
 
-                #css: create folder on src > images > nav-arrow.png
+
+00. style={{backgroundImage: `url("assets/images/uploads/1.jpg")`,  backgroundRepeat: 'no-repeat',backgroundPosition: 'left center'}}
+01. style={{backgroundImage: 'url("./assets/images/uploads/1.jpg")'}}
+
+
+ 01.              ======== #css: create folder on src > images > nav-arrow.png ========
 
 .owl-carousel .owl-nav button.owl-prev span{
 	
@@ -28,5 +33,49 @@
 
 <div className=" owl-prev" >  </div>
 
-                ## js ##
+02.                        =========== ## js ## backgroundImage: `url(${favicon})`  ==============   
 
+import favicon from "../images/favicon.png";
+
+ <div style={{
+            width: '150px',
+            height:'150px',
+            backgroundImage: `url(${favicon})`,
+            backgroundRepeat: 'no-repeat',
+	    backgroundPosition: 'left center'
+          }}> 
+</div>
+
+OR
+03.  backgroundImage: `url(${require('./images/nav-arrow.png')})`,
+
+ <div style={{
+            width: '150px',
+            height:'150px',
+            backgroundImage: `url(${require('../images/nav-arrow.png')})`,
+            backgroundRepeat: 'no-repeat',
+	    backgroundPosition: 'left center'
+          }}> 
+</div>
+
+ 04.               ======== images/index.js ==============
+
+src\images\index.js
+const IMAGES = {
+    imgFav: require('./favicon.png'),
+    imgArrow: require('./nav-arrow.png'),
+}
+
+export default IMAGES;
+
+                ** and page import const IMAGES any page
+
+import IMAGES from '../images/index.js'
+
+<div style={{ backgroundImage: `url(${IMAGES.imgFav})`}}> 
+</div>
+
+
+=== Bootstrap ====
+
+npm install react-bootstrap bootstrap
