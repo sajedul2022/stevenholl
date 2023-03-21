@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import favicon from "../images/favicon.png";
 import IMAGES from "../images/index.js";
@@ -9,13 +9,50 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import Carousel from "react-bootstrap/Carousel";
 
 export default function Header() {
+  const constructionMenu = () => {
+    // <div class="sub-nav">
+    //   <div class="menu-project-page-menu-container">
+    //     <ul id="project-pagemenu" class="menu">
+    //       <li
+    //         id="menu-item-5906"
+    //         class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5832 current_page_item menu-item-5906"
+    //       >
+    //         <a href="#" aria-current="page">
+    //           Selected Projects
+    //         </a>
+    //       </li>
+    //       <li
+    //         id="menu-item-5915"
+    //         class="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5915"
+    //       >
+    //         <a href="#">Museums</a>
+    //       </li>
+    //       <li
+    //         id="menu-item-5917"
+    //         class="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5917"
+    //       >
+    //         <a href="#">Performing Arts</a>
+    //       </li>
+    //     </ul>
+    //   </div>
+    // </div>;
+  };
+
   return (
     <>
       <header className="mainheaderSec">
         <div className="menuwrap-parent">
           <div className="menuwrap">
+            <a href="#" class="translation-link">
+              <p class="translation-icon zhlang" data-no-translation>
+        
+              </p>
+            </a>
+            
+
             <Link id="show-hidden-menu" className="sha" to="/">
               <div
                 style={{
@@ -65,15 +102,44 @@ export default function Header() {
             </div>
           </div>
         </div>
+
+        <div class="sub-nav">
+          <div class="menu-project-page-menu-container">
+            <ul id="project-pagemenu" class="menu">
+              <li
+                id="menu-item-5906"
+                class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5832 current_page_item menu-item-5906"
+              >
+                <a href="#" aria-current="page">
+                  Selected Projects
+                </a>
+              </li>
+              <li
+                id="menu-item-5915"
+                class="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5915"
+              >
+                <a href="#">Museums</a>
+              </li>
+              <li
+                id="menu-item-5917"
+                class="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5917"
+              >
+                <a href="#">Performing Arts</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </header>
 
-      <Navbar fixed="top"  bg="light" expand="lg">
+      {/* <button onClick={constructionMenu}>Show alert</button>; */}
+
+      <Navbar fixed="top" bg="light" expand="lg">
         <Container>
-          <Link to="/"> 
-          <Navbar.Brand to="/">
-            <img src="assets/images/logo.png" style={{ height: "30px" }} />
-            INSPACE <i> atelier </i>
-          </Navbar.Brand>
+          <Link to="/">
+            <Navbar.Brand to="/">
+              <img src="assets/images/logo.png" style={{ height: "30px" }} />
+              INSPACE <i> atelier </i>
+            </Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -83,8 +149,14 @@ export default function Header() {
               navbarScroll
             >
               {/* <Nav.Link to="studio-contact"> </Nav.Link> */}
-              <Nav.Link > <Link to="/">Home</Link> </Nav.Link>
-              <Nav.Link > <Link to="studio-contact">Contact</Link>  </Nav.Link>
+              <Nav.Link>
+                {" "}
+                <Link to="/">Home</Link>
+              </Nav.Link>
+              <Nav.Link>
+                {" "}
+                <Link to="studio-contact">Contact</Link>{" "}
+              </Nav.Link>
               <NavDropdown title="Projects" id="navbarScrollingDropdown">
                 <NavDropdown.Item>
                   <Link to="design-projects">Design Projects</Link>
@@ -94,9 +166,14 @@ export default function Header() {
                 </NavDropdown.Item>
                 {/* <NavDropdown.Divider /> */}
               </NavDropdown>
-              <Nav.Link > <Link to="news">News & Events</Link> </Nav.Link>
-              <Nav.Link > <Link to="idea">Idea </Link> </Nav.Link>
-              
+              <Nav.Link>
+                {" "}
+                <Link to="news">News & Events</Link>{" "}
+              </Nav.Link>
+              <Nav.Link>
+                {" "}
+                <Link to="idea">Idea </Link>{" "}
+              </Nav.Link>
             </Nav>
             <Form className="d-flex">
               <Form.Control
@@ -110,6 +187,7 @@ export default function Header() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      {/* </div> */}
     </>
   );
 }

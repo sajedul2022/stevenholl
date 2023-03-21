@@ -4,7 +4,9 @@ export default function StudioContact() {
 
   return (
     <>
-      <div className="bgcommanSec" style={{backgroundImage: "url('https://imagekit.io/blog/content/images/2020/06/CDN_server_user.png')"}}></div>
+      <div class="col-sm-5 col-md-5 col-lg-5"></div>
+      <div className="bgcommanSec fullscreenslider" style={{backgroundImage: `url("assets/images/uploads/2.jpg")`}}>
+      </div>
 
       <div className="paragraph-section">
         <div className="sub-paragraph">

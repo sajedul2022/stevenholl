@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
@@ -11,7 +13,10 @@ import DesignProjects from './pages/DesignProjects';
 import NewsEvents from './pages/NewsEvents';
 import IdeaPhenomena from './pages/IdeaPhenomena';
 import ConstructionProjects from './pages/ConstructionProjects';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Search from './pages/Search';
+import Museums from './category/Museums';
+import SingleProject from './category/SingleProject';
+import SingleNews from './category/SingleNews';
 
 export default function RouterApp() {
   return (
@@ -24,6 +29,10 @@ export default function RouterApp() {
           <Route path="/news" element={<NewsEvents />} /> 
           <Route path="/idea" element={<IdeaPhenomena />} /> 
           <Route path="/construction-projects" element={<ConstructionProjects />} /> 
+          <Route path="/museums" element={<Museums />} /> 
+          <Route path="/single-project" element={<SingleProject />} /> 
+          <Route path="/single-news" element={<SingleNews />} /> 
+          <Route path="/search" element={<Search />} /> 
           
           
         </Route>

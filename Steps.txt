@@ -79,3 +79,10 @@ import IMAGES from '../images/index.js'
 === Bootstrap ====
 
 npm install react-bootstrap bootstrap
+
+<div class="col-sm-7 col-md-7 col-lg-7">
+</div>
+
+=== common section bg image ===
+
+<div className="bgcommanSec" style={{backgroundImage: `url("assets/images/uploads/2.jpg")`}}></div>

@@ -37,7 +37,7 @@
   }
 }
 
-/* custom css */
+                                  /* custom css */
 
 .post,
 .page {
@@ -57,7 +57,7 @@ i {
   font-size: 16px;
   line-height: 1.5;
   display: inline-block;
-  margin: 40px;
+  margin: 00px;
 }
 
 /* slider */
@@ -93,6 +93,14 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light a {
 @media only screen and (max-width: 600px) {
   header.mainheaderSec {
     display: none;
+    
+  }
+  footer.footer {
+    display: block;
+}
+
+  .paragraph-section {
+    top: 300px;
   }
 }
 
@@ -101,6 +109,24 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light a {
   header.mainheaderSec {
     display: none;
   }
+
+  .paragraph-section {
+    top: 300px;
+  }
+
+  footer.footer {
+    display: block;
+}
+}
+
+@media (max-width: 767px){
+  footer.footer {
+      display: block !important;
+  }
+.postimagegallery ul li img {
+  max-height: 320px;
+  object-fit: contain;
+}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -108,11 +134,19 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light a {
   header.mainheaderSec {
     display: none;
   }
+
+  .paragraph-section {
+    top: 300px;
+  }
+
+  footer.footer {
+    display: block;
+}
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-
   nav.navbar.navbar-expand-lg.navbar-light.bg-light {
     display: none;
   }
@@ -120,11 +154,16 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light a {
   header.mainheaderSec {
     display: block;
   }
+
+  .paragraph-section {
+    top: 20px;
+  }
+
+  
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-
   nav.navbar.navbar-expand-lg.navbar-light.bg-light {
     display: none;
   }
@@ -132,9 +171,27 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light a {
   header.mainheaderSec {
     display: block;
   }
+
+  .paragraph-section {
+    top: 20px;
+  }
 }
+
+
 
 
 .navbar-nav-scroll {
   max-height: max-content !important;
+}
+
+header.mainheaderSec {
+  z-index: 99999;
+}
+
+/* construction page */
+
+
+.museums a:hover {
+  background-color: transparent;
+  color: #555;
 }
