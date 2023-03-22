@@ -4,16 +4,16 @@ export default function Search() {
   return (
     <div>
       <div
-        class="bgcommanSec"
+        className="bgcommanSec"
         style={{ backgroundImage: `url("assets/images/uploads/2.jpg")` }} 
       ></div>
 
-      <div class="paragraph-section presslistSec search_sec">
-        <div class="sub-paragraph">
-          <div class="contenttext">
-            <h1 class="entry-title">Search </h1>
-            <form class="search_form" action="#">
-              <label for="search" class="search_label label_hide">
+      <div className="paragraph-section  search_sec">
+        <div className="sub-paragraph">
+          <div className="contenttext">
+            <h1 className="entry-title">Search </h1>
+            <form className="search_form" action="#">
+              <label for="search" className="search_label label_hide">
                 Search
               </label>
               <input

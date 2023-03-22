@@ -18,6 +18,8 @@
 00. style={{backgroundImage: `url("assets/images/uploads/1.jpg")`,  backgroundRepeat: 'no-repeat',backgroundPosition: 'left center'}}
 01. style={{backgroundImage: 'url("./assets/images/uploads/1.jpg")'}}
 
+<div className="bgcommanSec" style={{ backgroundImage: `url("assets/images/uploads/1.jpg")` }} > </div>
+
 
  01.              ======== #css: create folder on src > images > nav-arrow.png ========
 
@@ -80,8 +82,14 @@ import IMAGES from '../images/index.js'
 
 npm install react-bootstrap bootstrap
 
-<div class="col-sm-7 col-md-7 col-lg-7">
-</div>
+
+<div className="container"> 
+   <div className="row"> 
+
+     <div className="col-sm-7 col-md-7 col-lg-7"> </div>
+
+   </div> 
+</div> 
 
 === common section bg image ===
 

@@ -5,10 +5,14 @@ import Carousel from "react-bootstrap/Carousel";
 export default function Museums() {
   return (
     <div className="museums">
-      {/* <div className="bgcommanSec fullscreenslider" style={{ backgroundImage: `url("assets/images/uploads/3.jpg")` }}> 
-      </div> */}
+      
+      <div className="bgcommanSec fullscreenslider" style={{
+          // backgroundImage: `url("assets/images/uploads/1.jpg")`,
+          backgroundColor: "#2f4966",
+        }} >
+        </div>
 
-      <div class="fullscreenslider">
+      {/* <div className="fullscreenslider">
         <Carousel variant="dark">
           <Carousel.Item>
             <img
@@ -46,81 +50,88 @@ export default function Museums() {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-      </div>
-
-      <header className="mainheaderSec">
-        <div className="sub-nav">
-          <div className="menu-project-page-menu-container">
-            <ul id="project-pagemenu" className="menu">
-              <li
-                id="menu-item-5906"
-                className="menu-item menu-item-type-post_type menu-item-object-page menu-item-5906"
-              >
-                <a href="#">Selected Projects</a>
-              </li>
-              <li
-                id="menu-item-5915"
-                className="menu-item menu-item-type-taxonomy menu-item-object-category_projects current-menu-item menu-item-5915"
-              >
-                <Link to="" aria-current="page">
-                  Museums
-                </Link>
-              </li>
-              <li
-                id="menu-item-5917"
-                className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5917"
-              >
-                <Link to="#">Performing Arts</Link>
-              </li>
-              <li
-                id="menu-item-5912"
-                className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5912"
-              >
-                <a href="#">Housing</a>
-              </li>
-              <li
-                id="menu-item-5907"
-                className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5907"
-              >
-                <a href="">Educational + Campus Works</a>
-              </li>
-              <li
-                id="menu-item-5916"
-                className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5916"
-              >
-                <a href="">Office + Hybrid Towers</a>
-              </li>
-              <li
-                id="menu-item-5913"
-                className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5913"
-              >
-                <a href="">Libraries</a>
-              </li>
-              <li
-                id="menu-item-5911"
-                className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5911"
-              >
-                <a href="">Houses</a>
-              </li>
-              <li
-                id="menu-item-5918"
-                className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5918"
-              >
-                <a href="">Religious Works</a>
-              </li>
-              <li
-                id="menu-item-5910"
-                className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5910"
-              >
-                <a href="">Hotel + Retail</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </header>
+      </div> */}
 
       <div className="paragraph-section project_page qqq">
-        <div className="SelectedProjectsSec">
+
+        <div className="container">
+          <div className="row">
+
+            <div className="col-sm-4 col-md-4 col-lg-4">
+              <header className="">
+                <div className="sub-nav">
+                  <div className="menu-project-page-menu-container">
+                    <ul id="project-pagemenu" className="menu">
+                      <li
+                        id="menu-item-5906"
+                        className="menu-item menu-item-type-post_type menu-item-object-page menu-item-5906"
+                      >
+                        <a href="#">Selected Projects</a>
+                      </li>
+                      <li
+                        id="menu-item-5915"
+                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects current-menu-item menu-item-5915"
+                      >
+                        <Link to="" aria-current="page">
+                          Museums
+                        </Link>
+                      </li>
+                      <li
+                        id="menu-item-5917"
+                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5917"
+                      >
+                        <Link to="#">Performing Arts</Link>
+                      </li>
+                      <li
+                        id="menu-item-5912"
+                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5912"
+                      >
+                        <Link to="#">Housing</Link>
+                      </li>
+                      <li
+                        id="menu-item-5907"
+                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5907"
+                      >
+                        <Link to="">Educational + Campus Works</Link>
+                      </li>
+                      <li
+                        id="menu-item-5916"
+                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5916"
+                      >
+                        <Link to="">Office + Hybrid Towers</Link>
+                      </li>
+                      <li
+                        id="menu-item-5913"
+                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5913"
+                      >
+                        <Link to="">Libraries</Link>
+                      </li>
+                      <li
+                        id="menu-item-5911"
+                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5911"
+                      >
+                        <Link to="">Houses</Link>
+                      </li>
+                      <li
+                        id="menu-item-5918"
+                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5918"
+                      >
+                        <Link to="">Religious Works</Link>
+                      </li>
+                      <li
+                        id="menu-item-5910"
+                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5910"
+                      >
+                        <Link to="">Hotel + Retail</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </header>
+            </div>
+
+            <div className="col-sm-7 col-md-7 col-lg-7">
+            <div className="SelectedProjectsSec">
           <div className="newbox sub-paragraph">
             <div className="titleSec">
               <h2>
@@ -131,7 +142,7 @@ export default function Museums() {
               </h2>
             </div>
             <div className="img-wrap">
-            <Link to="/single-project">
+              <Link to="/single-project">
                 <img
                   src="assets/images/uploads/4.jpg"
                   alt="NANCY AND RICH KINDER MUSEUM BUILDING, MUSEUM OF FINE ARTS HOUSTON (MFAH)"
@@ -143,7 +154,10 @@ export default function Museums() {
           <div className="newbox sub-paragraph">
             <div className="titleSec">
               <h2>
-                <Link to="/single-project" > INSTITUTE FOR CONTEMPORARY ART, VCU</Link>
+                <Link to="/single-project">
+                  {" "}
+                  INSTITUTE FOR CONTEMPORARY ART, VCU
+                </Link>
               </h2>
             </div>
             <div className="img-wrap">
@@ -165,6 +179,11 @@ export default function Museums() {
             </div>
           </nav>
         </div>
+            </div>
+          </div>
+        </div>
+
+        
       </div>
     </div>
   );

@@ -37,7 +37,7 @@
   }
 }
 
-                                  /* custom css */
+/* custom css */
 
 .post,
 .page {
@@ -62,7 +62,7 @@ i {
 
 /* slider */
 
-.owl-carousel .owl-nav button.owl-prev span {
+/* .owl-carousel .owl-nav button.owl-prev span {
   font-size: 0;
   width: 18px;
   height: 53px;
@@ -83,7 +83,7 @@ i {
   background-position: left center;
   background-size: 18px 53px;
   display: inline-block;
-}
+} */
 
 nav.navbar.navbar-expand-lg.navbar-light.bg-light a {
   text-decoration: none;
@@ -93,11 +93,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light a {
 @media only screen and (max-width: 600px) {
   header.mainheaderSec {
     display: none;
-    
   }
   footer.footer {
     display: block;
-}
+  }
 
   .paragraph-section {
     top: 300px;
@@ -116,17 +115,17 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light a {
 
   footer.footer {
     display: block;
-}
+  }
 }
 
-@media (max-width: 767px){
+@media (max-width: 767px) {
   footer.footer {
-      display: block !important;
+    display: block !important;
   }
-.postimagegallery ul li img {
-  max-height: 320px;
-  object-fit: contain;
-}
+  .postimagegallery ul li img {
+    max-height: 320px;
+    object-fit: contain;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -141,8 +140,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light a {
 
   footer.footer {
     display: block;
-}
-
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -158,8 +156,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light a {
   .paragraph-section {
     top: 20px;
   }
-
-  
+  .m-hero {
+    display: none;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -175,10 +174,29 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light a {
   .paragraph-section {
     top: 20px;
   }
+
+  .m-hero {
+    display: none;
+  }
+
 }
+@media only screen and (min-width: 1200px) and (max-width: 1900px) {
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    display: none;
+  }
+  header.mainheaderSec {
+    display: block;
+  }
 
+  .paragraph-section {
+    top: 20px;
+  }
 
-
+  .m-hero {
+    display: none;
+  }
+  
+}
 
 .navbar-nav-scroll {
   max-height: max-content !important;
@@ -190,8 +208,52 @@ header.mainheaderSec {
 
 /* construction page */
 
-
 .museums a:hover {
-  background-color: transparent;
+  background-color: #f0f0f0;
   color: #555;
+}
+
+.paragraph-section {
+  min-width: 900px !important;
+  max-width: 900px !important;
+}
+
+.museums .fullscreenslider {
+}
+
+.sha {
+  background: transparent;
+}
+.m-logo {
+  background: rgb(175, 172, 172);
+}
+
+.navbar {
+  background: rgb(175, 172, 172);
+}
+
+.search_sec .search_form {
+  margin: 20px;
+}
+.accordion-item a {
+  text-decoration: none;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+.accordion {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+button.accordion-button.collapsed {
+  font-size: 14px;
+}
+button.accordion-button {
+  font-size: 14px;
+}
+.accordion-body {
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
 }
