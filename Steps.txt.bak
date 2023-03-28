@@ -94,13 +94,3 @@ npm install react-bootstrap bootstrap
 === common section bg image ===
 
 <div className="bgcommanSec" style={{backgroundImage: `url("assets/images/uploads/2.jpg")`}}></div>
-
-	==== react run dev ====
-	
-	npm install --save-dev nodemon
-Go in the package.json and add "dev": "nodemon ./bin/www"
-
-
-  ===== Laravel react ==
-
-  npm i react-axios

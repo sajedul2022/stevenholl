@@ -214,8 +214,8 @@ header.mainheaderSec {
 }
 
 .paragraph-section {
-  min-width: 900px !important;
-  max-width: 900px !important;
+  min-width: 200px !important;
+  max-width: 800px !important;
 }
 
 .museums .fullscreenslider {

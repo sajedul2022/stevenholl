@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import favicon from "../images/favicon.png";
-import IMAGES from "../images/index.js";
+
+// import favicon from "../images/favicon.png";
+// import IMAGES from "../images/index.js";
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -12,8 +14,32 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Carousel from "react-bootstrap/Carousel";
 
 export default function Header() {
+  const [basic, setBasic] = useState([]);
+
+  useEffect(() => {
+    allBasic();
+  }, []);
+
+  const allBasic = async () => {
+    axios
+      .get( "http://localhost/Inspace-backend/app/Http/Controllers/frontend/BasicController.php"
+        // "http://127.0.0.1:8000/basic-frontend"
+      )
+      .then((res) => {
+        setBasic(res.data.datas.basics);
+        console.log(res.data.datas.basics);
+      });
+  };
+
   return (
     <>
+      {basic.map((item, index) => (
+        <tr key={item.id}>
+          <td>{index + 1}</td>
+          <td>{item.name}</td>
+        </tr>
+      ))}
+
       <header className="mainheaderSec">
         <div className="menuwrap-parent">
           <div className="menuwrap">
@@ -22,9 +48,11 @@ export default function Header() {
             </a>
 
             <Link id="show-hidden-menu" className="sha" to="/">
-              
-              <img className="b-logo " src="assets/images/logo.png" style={{ height: "30px" }} />
-               
+              <img
+                className="b-logo "
+                src="assets/images/logo.png"
+                style={{ height: "30px" }}
+              />
             </Link>
 
             <div className="menu-home-page-container">
@@ -65,13 +93,15 @@ export default function Header() {
         </div>
       </header>
 
-     
-
       <Navbar fixed="top" bg="light" expand="lg">
         <Container>
           <Link to="/">
             <Navbar.Brand to="/">
-              <img className="m-logo" src="assets/images/logo.png" style={{ height: "30px" }} />
+              <img
+                className="m-logo"
+                src="assets/images/logo.png"
+                style={{ height: "30px" }}
+              />
               {/* INSPACE <i> atelier </i> */}
             </Navbar.Brand>
           </Link>
