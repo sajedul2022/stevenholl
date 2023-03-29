@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import favicon from "../images/favicon.png";
-import IMAGES from "../images/index.js";
+import axios from "axios";
+
+// import favicon from "../images/favicon.png";
+// import IMAGES from "../images/index.js";
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -22,9 +24,11 @@ export default function Header() {
             </a>
 
             <Link id="show-hidden-menu" className="sha" to="/">
-              
-              <img className="b-logo " src="assets/images/logo.png" style={{ height: "30px" }} />
-               
+              <img
+                className="b-logo "
+                src="assets/images/logo.png"
+                style={{ height: "30px" }}
+              />
             </Link>
 
             <div className="menu-home-page-container">
@@ -65,13 +69,15 @@ export default function Header() {
         </div>
       </header>
 
-     
-
       <Navbar fixed="top" bg="light" expand="lg">
         <Container>
           <Link to="/">
             <Navbar.Brand to="/">
-              <img className="m-logo" src="assets/images/logo.png" style={{ height: "30px" }} />
+              <img
+                className="m-logo"
+                src="assets/images/logo.png"
+                style={{ height: "30px" }}
+              />
               {/* INSPACE <i> atelier </i> */}
             </Navbar.Brand>
           </Link>

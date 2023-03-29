@@ -94,3 +94,38 @@ npm install react-bootstrap bootstrap
 === common section bg image ===
 
 <div className="bgcommanSec" style={{backgroundImage: `url("assets/images/uploads/2.jpg")`}}></div>
+
+	                                      ==== react run dev ====
+	
+npm install --save-dev nodemon
+Go in the package.json and add "dev": "nodemon ./bin/www"
+
+
+                                        ===== Laravel react ===
+npm i axios
+npm i react-axios
+
+  export default function Header() {
+  const [basic, setBasic] = useState([]);
+
+  useEffect(() => {
+    allBasic();
+  }, []);
+
+  const allBasic = async () => {
+    axios
+      .get( "http://localhost/Inspace/Inspace-backend/app/Http/Controllers/frontend/BasicController.php"
+        // "http://127.0.0.1:8000/basic-frontend"
+      )
+      .then((res) => {
+        setBasic(res.data.datas.basics);
+        console.log(res.data.datas.basics);
+      });
+  };
+
+  {basic.map((item, index) => (
+        <tr key={item.id}>
+          <td>{index + 1}</td>
+          <td>{item.name}</td>
+        </tr>
+      ))}

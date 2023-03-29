@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function StudioContact() {
+  const [basic, setBasic] = useState([]);
+
+  useEffect(() => {
+    allBasic();
+  }, []);
+
+  const allBasic = async () => {
+    axios
+      .get(
+        "http://localhost/Inspace/Inspace-backend/app/Http/Controllers/frontend/BasicController.php"
+        // "http://127.0.0.1:8000/basic-frontend"
+      )
+      .then((res) => {
+        setBasic(res.data.datas.basics);
+        console.log(res.data.datas.basics);
+      });
+  };
+
   return (
     <>
-      {/* <div className="col-sm-5 col-md-5 col-lg-5"></div> */}
       <div
         className="bgcommanSec fullscreenslider"
         style={{ backgroundImage: `url("assets/images/uploads/2.jpg")` }}
@@ -11,8 +30,7 @@ export default function StudioContact() {
 
       <div className="paragraph-section">
         <div className="sub-paragraph">
-        <h1>LOCATIONS</h1>
-
+          <h1>LOCATIONS</h1>
         </div>
 
         <div className="sub-paragraph">
@@ -27,6 +45,14 @@ export default function StudioContact() {
             <p>
               <a href="mailto:masuminspace@gmail.com">masuminspace@gmail.com</a>
             </p>
+            <div>
+              {basic.map((item, index) => (
+                <tr key={item.id}>
+                  <td>{index + 1}</td>
+                  <td>{item.address}</td>
+                </tr>
+              ))}
+            </div>
           </div>
         </div>
       </div>

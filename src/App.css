@@ -214,8 +214,8 @@ header.mainheaderSec {
 }
 
 .paragraph-section {
-  min-width: 900px !important;
-  max-width: 900px !important;
+  min-width: 200px !important;
+  max-width: 800px !important;
 }
 
 .museums .fullscreenslider {
@@ -256,4 +256,7 @@ button.accordion-button {
 .accordion-body {
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
+}
+a.carousel-control-prev {
+  margin-left: -50px;
 }
