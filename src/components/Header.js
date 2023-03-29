@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+=======
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+>>>>>>> 0e85a3822e872cd395b96e751ab13e19665158de
 
 // import favicon from "../images/favicon.png";
 // import IMAGES from "../images/index.js";
@@ -14,8 +20,32 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Carousel from "react-bootstrap/Carousel";
 
 export default function Header() {
+  const [basic, setBasic] = useState([]);
+
+  useEffect(() => {
+    allBasic();
+  }, []);
+
+  const allBasic = async () => {
+    axios
+      .get( "http://localhost/Inspace-backend/app/Http/Controllers/frontend/BasicController.php"
+        // "http://127.0.0.1:8000/basic-frontend"
+      )
+      .then((res) => {
+        setBasic(res.data.datas.basics);
+        console.log(res.data.datas.basics);
+      });
+  };
+
   return (
     <>
+      {basic.map((item, index) => (
+        <tr key={item.id}>
+          <td>{index + 1}</td>
+          <td>{item.name}</td>
+        </tr>
+      ))}
+
       <header className="mainheaderSec">
         <div className="menuwrap-parent">
           <div className="menuwrap">
