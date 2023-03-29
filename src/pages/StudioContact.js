@@ -3,23 +3,25 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function StudioContact() {
-  const [basic, setBasic] = useState([]);
+  
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    allBasic();
+    fetch("http://127.0.0.1:8000/api/basic-fe")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
   }, []);
-
-  const allBasic = async () => {
-    axios
-      .get(
-        "http://localhost/Inspace/Inspace-backend/app/Http/Controllers/frontend/BasicController.php"
-        // "http://127.0.0.1:8000/basic-frontend"
-      )
-      .then((res) => {
-        setBasic(res.data.datas.basics);
-        console.log(res.data.datas.basics);
-      });
-  };
 
   return (
     <>
@@ -28,34 +30,47 @@ export default function StudioContact() {
         style={{ backgroundImage: `url("assets/images/uploads/2.jpg")` }}
       ></div>
 
-      <div className="paragraph-section">
-        <div className="sub-paragraph">
-          <h1>LOCATIONS</h1>
-        </div>
+      {items.map((item) => (
+        <div key={item.id} className="paragraph-section">
+          <div className="sub-paragraph">
+            <h1>LOCATIONS</h1>
+          </div>
 
-        <div className="sub-paragraph">
-          <div className="paragraph-block">
-            <p>
-              <u>Dhaka Office</u>
-            </p>
-            <p>House# 14/B, Rashid Nibash, Third Floor,</p>
-            <p>Road 68, Gulshan 02, Dhaka 1212 </p>
-            <p>Contact: +8801713063282, +8801610201122</p>
+          <div className="sub-paragraph">
+            <div className="paragraph-block" key={item.id}>
+              <p>
+                <h3> Office </h3>
+              </p>
+              <p> <b> Address: </b>  {item.address}</p>
+              <p><b>Contact: </b> {item.phone} </p>
 
-            <p>
-              <a href="mailto:masuminspace@gmail.com">masuminspace@gmail.com</a>
-            </p>
-            <div>
-              {basic.map((item, index) => (
-                <tr key={item.id}>
-                  <td>{index + 1}</td>
-                  <td>{item.address}</td>
-                </tr>
-              ))}
+              <p> <b> Mail: </b>
+                <a href="mailto:">
+                {item.email}
+                </a>
+              </p>
+              <br/>
+              
+
+              <h3> Directions </h3>
+
+              <div
+                id="map-container-google-2"
+                className="z-depth-1-half map-container"
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.411314726089!2d90.40712851434951!3d23.803968592646125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7d95c61b819%3A0x13de197600ae7aef!2sInspace%20Atelier!5e0!3m2!1sen!2sus!4v1680082779646!5m2!1sen!2sus"
+                  width="600"
+                  height="350"
+                  style={{ border: "0" }}
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ))}
     </>
   );
 }

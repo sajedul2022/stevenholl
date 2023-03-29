@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-=======
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
->>>>>>> 0e85a3822e872cd395b96e751ab13e19665158de
 
 // import favicon from "../images/favicon.png";
 // import IMAGES from "../images/index.js";
@@ -20,85 +14,96 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Carousel from "react-bootstrap/Carousel";
 
 export default function Header() {
-  const [basic, setBasic] = useState([]);
+  
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    allBasic();
+    fetch("http://127.0.0.1:8000/api/basic-fe")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
   }, []);
-
-  const allBasic = async () => {
-    axios
-      .get( "http://localhost/Inspace-backend/app/Http/Controllers/frontend/BasicController.php"
-        // "http://127.0.0.1:8000/basic-frontend"
-      )
-      .then((res) => {
-        setBasic(res.data.datas.basics);
-        console.log(res.data.datas.basics);
-      });
-  };
 
   return (
     <>
-      {basic.map((item, index) => (
-        <tr key={item.id}>
-          <td>{index + 1}</td>
-          <td>{item.name}</td>
-        </tr>
-      ))}
+      {items.map((item) => (
+        <header key={item.id} className="mainheaderSec">
+          <div className="menuwrap-parent">
+            <div className="menuwrap">
+              <a href="#" className="translation-link">
+                <p className="translation-icon zhlang" data-no-translation></p>
+              </a>
 
-      <header className="mainheaderSec">
-        <div className="menuwrap-parent">
-          <div className="menuwrap">
-            <a href="#" className="translation-link">
-              <p className="translation-icon zhlang" data-no-translation></p>
-            </a>
+              <Link id="show-hidden-menu" className="sha" to="/">
+                <img
+                  className="b-logo "
+                  src="assets/images/logo.png"
+                  style={{ height: "30px" }}
+                  alt="Logo"
+                />
 
-            <Link id="show-hidden-menu" className="sha" to="/">
-              <img
-                className="b-logo "
-                src="assets/images/logo.png"
-                style={{ height: "30px" }}
-              />
-            </Link>
+                {/* <img
+                  className="b-logo "
+                  src={item.logo}
+                  style={{ height: "30px" }}
+                  alt="Logo"
+                /> */}
 
-            <div className="menu-home-page-container">
-              <ul id="homepagemenu" className="menu">
-                <li
-                  id="menu-item-5900"
-                  className="world-map menu-item menu-item-type-post_type menu-item-object-page menu-item-5900"
-                >
-                  <Link to="studio-contact">Contact</Link>
-                </li>
-                <li
-                  id="menu-item-5901"
-                  className="all menu-item menu-item-type-post_type menu-item-object-page menu-item-5901"
-                >
-                  <Link to="design-projects">Design Projects</Link>
-                </li>
-                <li
-                  id="menu-item-5902"
-                  className="arts menu-item menu-item-type-post_type menu-item-object-page menu-item-5902"
-                >
-                  <Link to="news">News & Events</Link>
-                </li>
-                <li
-                  id="menu-item-5903"
-                  className="educational menu-item menu-item-type-post_type menu-item-object-page menu-item-5903"
-                >
-                  <Link to="idea">Idea </Link>
-                </li>
-                <li
-                  id="menu-item-5904"
-                  className="museums menu-item menu-item-type-post_type menu-item-object-page menu-item-5904"
-                >
-                  <Link to="construction-projects">Construction Projects</Link>
-                </li>
-              </ul>
+
+              </Link>
+
+              <div className="menu-home-page-container">
+                <ul id="homepagemenu" className="menu">
+                  <li
+                    id="menu-item-5900"
+                    className="world-map menu-item menu-item-type-post_type menu-item-object-page menu-item-5900"
+                  >
+                    <Link to="studio-contact">Contact</Link>
+                  </li>
+                  <li
+                    id="menu-item-5901"
+                    className="all menu-item menu-item-type-post_type menu-item-object-page menu-item-5901"
+                  >
+                    <Link to="design-projects">Design Projects</Link>
+                  </li>
+                  <li
+                    id="menu-item-5902"
+                    className="arts menu-item menu-item-type-post_type menu-item-object-page menu-item-5902"
+                  >
+                    <Link to="news">News & Events</Link>
+                  </li>
+                  <li
+                    id="menu-item-5903"
+                    className="educational menu-item menu-item-type-post_type menu-item-object-page menu-item-5903"
+                  >
+                    <Link to="idea">Idea </Link>
+                  </li>
+                  <li
+                    id="menu-item-5904"
+                    className="museums menu-item menu-item-type-post_type menu-item-object-page menu-item-5904"
+                  >
+                    <Link to="construction-projects">
+                      Construction Projects
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
+      ))}
 
+      {/* mobile menu */}
       <Navbar fixed="top" bg="light" expand="lg">
         <Container>
           <Link to="/">
@@ -157,7 +162,6 @@ export default function Header() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {/* </div> */}
     </>
   );
 }
