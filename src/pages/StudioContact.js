@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+
+
 
 export default function StudioContact() {
   
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+
   const [items, setItems] = useState([]);
+  console.log(items)
+
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/api/basic-fe")

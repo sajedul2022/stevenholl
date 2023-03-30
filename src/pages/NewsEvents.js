@@ -1,112 +1,87 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function NewsEvents() {
+  
+  const [getuserdata, setUserdata] = useState([]);
+  console.log(getuserdata);
+
+  const getdata = async () => {
+    const res = await fetch("http://127.0.0.1:8000/api/news-fe", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await res.json();
+    console.log(data);
+
+    if (res.status === 422 || !data) {
+      console.log("error ");
+    } else {
+      setUserdata(data);
+      console.log("get data");
+    }
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
+
   return (
     <>
-      <div className="bgcommanSec" style={{backgroundImage: `url("assets/images/uploads/1.jpg")`}}></div>
-
-      {/* <div className="paragraph-section">
-        <div className="sub-paragraph">
-          <h1>News & Events</h1>
-          <p>Upcomming...</p>
-        </div>
-      </div> */}
-
+      <div
+        className="bgcommanSec"
+        style={{ backgroundImage: `url("assets/images/uploads/1.jpg")` }}
+      ></div>
 
       <div className="bgcommanSec"></div>
       <div className="paragraph-section news_page">
-      <div className="sub-paragraph">
+        <div className="sub-paragraph">
           <h1>News & Events</h1>
-          
         </div>
 
         <div className="font_13">
-
-          <div className="newsListSec" id="aajax-posts">
-            <div className="newbox sub-paragraph">
-              <div className="img-wrap">
-                <Link to="/single-news">
-                  <div className="img">
-                  <img
-                  src="assets/images/uploads/3.jpg"
-                  alt="NANCY AND RICH KINDER MUSEUM BUILDING, MUSEUM OF FINE ARTS HOUSTON (MFAH)"
-                />
+          {getuserdata.map((element, id) => {
+            return (
+              <div
+                className="newsListSec"
+                id="aajax-posts"
+                key={id}
+                item={element}
+              >
+                <div className="newbox sub-paragraph">
+                  <div className="img-wrap">
+                    <Link to="/news">
+                      <div className="img">
+                        <img
+                          // src="assets/images/uploads/3.jpg"
+                          src={`http://127.0.0.1:8000/images/${element.image}`}
+                          alt={element.title}
+                        />
+                      </div>
+                    </Link>
                   </div>
-                </Link>
-              </div>
-              <div className="content-wrap">
-                <div className="metasec">March 16, 2023 </div>
-                <h2>
-                  <Link to="/single-news">Ex of IN House Top Ten Airbnbs</Link>
-                </h2>
-                <p className="news-content">
-                  Forbes selected the Ex of IN House among the top ten Airbnbs
-                  in the United States. “Natural light comes streaming through
-                  skylights and shadow play abounds… Holl wants to change the
-                  way we live by creating structures that are efficient...
-                  <Link to="/single-news">more</Link>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="newsListSec" id="aajax-posts">
-            <div className="newbox sub-paragraph">
-              <div className="img-wrap">
-                <Link to="/single-news">
-                  <div className="img">
-                  <img
-                  src="assets/images/uploads/4.jpg"
-                  alt="NANCY AND RICH KINDER MUSEUM BUILDING, MUSEUM OF FINE ARTS HOUSTON (MFAH)"
-                />
+                  <div className="content-wrap">
+                    {/* <div className="metasec">{ element.created_at} </div> */}
+                    <h2>
+                      <Link to="/news">{element.title}</Link>
+                    </h2>
+                    <p className="news-content">
+                      {element.short_des}
+                      <span>
+                        {" "}
+                        {/* <Link to="/single-news">more</Link>{" "} */}
+                      </span>
+                    </p>
+                    <h5> More Details: </h5>
+                    <p> {element.full_des} </p>
                   </div>
-                </Link>
+                </div>
               </div>
-              <div className="content-wrap">
-                <div className="metasec">March 16, 2023 </div>
-                <h2>
-                  <Link to="/single-news">Ex of IN House Top Ten Airbnbs</Link>
-                </h2>
-                <p className="news-content">
-                  Forbes selected the Ex of IN House among the top ten Airbnbs
-                  in the United States. “Natural light comes streaming through
-                  skylights and shadow play abounds… Holl wants to change the
-                  way we live by creating structures that are efficient...
-                  <Link to="/single-news">more</Link>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="newsListSec" id="aajax-posts">
-            <div className="newbox sub-paragraph">
-              <div className="img-wrap">
-                <Link to="/single-news">
-                  <div className="img">
-                  <img
-                  src="assets/images/uploads/2.jpg"
-                  alt="NANCY AND RICH KINDER MUSEUM BUILDING, MUSEUM OF FINE ARTS HOUSTON (MFAH)"
-                />
-                  </div>
-                </Link>
-              </div>
-              <div className="content-wrap">
-                <div className="metasec">March 16, 2023 </div>
-                <h2>
-                  <Link to="/single-news">Ex of IN House Top Ten Airbnbs</Link>
-                </h2>
-                <p className="news-content">
-                  Forbes selected the Ex of IN House among the top ten Airbnbs
-                  in the United States. “Natural light comes streaming through
-                  skylights and shadow play abounds… Holl wants to change the
-                  way we live by creating structures that are efficient...
-                  <Link to="/single-news">more</Link>
-                </p>
-              </div>
-            </div>
-          </div>
-
+            );
+          })}
         </div>
       </div>
     </>

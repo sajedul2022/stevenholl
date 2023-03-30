@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function DesignProjects() {
+  const [getuserdata, setUserdata] = useState([]);
+  console.log(getuserdata);
+
+  const getdata = async () => {
+    const res = await fetch("http://127.0.0.1:8000/api/design-title", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await res.json();
+    console.log(data);
+
+    if (res.status === 422 || !data) {
+      console.log("error ");
+    } else {
+      setUserdata(data);
+      console.log("get data");
+    }
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
+
   return (
     <>
       <div
@@ -16,7 +42,7 @@ export default function DesignProjects() {
         <div className="container">
           <div className="sub-paragraph">
             <h1>Design Projects</h1>
-          </div> 
+          </div>
           <div className="row">
             <div className="col-sm-4 col-md-4 col-lg-4">
               <header>
@@ -31,55 +57,21 @@ export default function DesignProjects() {
                           Selected Projects
                         </a>
                       </li>
-                      <li
-                        id="menu-item-5915"
-                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5915"
-                      >
-                        <Link to="/museums">Museums</Link>
-                      </li>
-                      <li
-                        id="menu-item-5917"
-                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5917"
-                      >
-                        <a href="#">Performing Arts</a>
-                      </li>
 
-                      <li
-                        id="menu-item-5915"
-                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5915"
-                      >
-                        <a href="#">House</a>
-                      </li>
-                      <li
-                        id="menu-item-5917"
-                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5917"
-                      >
-                        <a href="#">Performing Arts</a>
-                      </li>
-                      <li
-                        id="menu-item-5915"
-                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5915"
-                      >
-                        <a href="#">Clubs</a>
-                      </li>
-                      <li
-                        id="menu-item-5917"
-                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5917"
-                      >
-                        <a href="#"> Arts</a>
-                      </li>
-                      <li
-                        id="menu-item-5915"
-                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5915"
-                      >
-                        <a href="#">Hall Room</a>
-                      </li>
-                      <li
-                        id="menu-item-5917"
-                        className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5917"
-                      >
-                        <a href="#">Performing Arts</a>
-                      </li>
+                      {getuserdata.map((element, id) => {
+                        return (
+                          <>
+                            <li
+                              key={id}
+                              item={element}
+                              id="menu-item-5915"
+                              className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5915"
+                            >
+                              <Link to="/museums">{element.title}</Link>
+                            </li>
+                          </>
+                        );
+                      })}
                     </ul>
                   </div>
                 </div>
@@ -87,62 +79,33 @@ export default function DesignProjects() {
             </div>
 
             <div className="col-sm-7 col-md-7 col-lg-7">
-              <div className="SelectedProjectsSec">
-                <div className="newbox sub-paragraph">
-                  <div className="titleSec">
-                    <h2>
-                      <Link to="/single-project">
-                        NANCY AND RICH KINDER MUSEUM BUILDING, MUSEUM OF FINE
-                        ARTS HOUSTON (MFAH)
-                      </Link>
-                    </h2>
-                  </div>
-                  <div className="img-wrap">
-                    <Link to="/single-project">
-                      <img
-                        src="assets/images/uploads/3.jpg"
-                        alt="NANCY AND RICH KINDER MUSEUM BUILDING, MUSEUM OF FINE ARTS HOUSTON (MFAH)"
-                      />
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="newbox sub-paragraph">
-                  <div className="titleSec">
-                    <h2>
-                      <Link to="/single-project">
-                        RUBENSTEIN COMMONS, INSTITUTE FOR ADVANCED STUDY
-                      </Link>
-                    </h2>
-                  </div>
-                  <div className="img-wrap">
-                    <Link to="/single-project">
-                      <img
-                        src="assets/images/uploads/2.jpg"
-                        alt="RUBENSTEIN COMMONS, INSTITUTE FOR ADVANCED STUDY"
-                      />
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="newbox sub-paragraph">
-                  <div className="titleSec">
-                    <h2>
-                      <Link to="/single-project">
-                        &#8216;Z&#8217; Space Interior Design
-                      </Link>
-                    </h2>
-                  </div>
-                  <div className="img-wrap">
-                    <Link to="/single-project">
-                      <img
-                        src="assets/images/uploads/2.jpg"
-                        alt="&#8216;Z&#8217; Space"
-                      />
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              {getuserdata.map((element, id) => {
+                return (
+                  <>
+                    <div className="SelectedProjectsSec">
+                      <div className="newbox sub-paragraph">
+                        <div className="titleSec">
+                          <h2>
+                            <Link to="/single-project">
+                              {/* NANCY AND RICH KINDER MUSEUM BUILDING, MUSEUM OF
+                              FINE ARTS HOUSTON (MFAH) */}
+                              {element.name}
+                            </Link>
+                          </h2>
+                        </div>
+                        <div className="img-wrap">
+                          <Link to="/single-project">
+                            <img
+                              src={`http://127.0.0.1:8000/images/${element.image_01}`}
+                              alt={element.title}
+                            />
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>

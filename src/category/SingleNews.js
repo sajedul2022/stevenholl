@@ -21,7 +21,7 @@ export default function SingleNews() {
                 Daeyang Gallery and House featured in Architizer
               </h1>
               <div className="entry-meta">
-                <span className="authorsec"> | February 7, 2023</span>
+                {/* <span className="authorsec"> | February 7, 2023</span> */}
               </div>
             </header>
 
@@ -46,9 +46,9 @@ export default function SingleNews() {
             <footer className="entry-footer"></footer>
           </article>
         </div>
-        <div className="sub-paragraph viewproject">
+        {/* <div className="sub-paragraph viewproject">
           <Link to="/single-project">VIEW PROJECT</Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );

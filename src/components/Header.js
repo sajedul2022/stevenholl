@@ -47,7 +47,8 @@ export default function Header() {
               <Link id="show-hidden-menu" className="sha" to="/">
                 <img
                   className="b-logo "
-                  src="assets/images/logo.png"
+                  // src="assets/images/logo.png"
+                  src={`http://127.0.0.1:8000/images/${item.logo}`}
                   style={{ height: "30px" }}
                   alt="Logo"
                 />
