@@ -5,7 +5,8 @@ export default function IdeaPhenomena() {
   console.log(getuserdata);
 
   const getdata = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/idea-fe", {
+    // const res = await fetch("http://127.0.0.1:8000/api/idea-fe", {
+    const res = await fetch("http://inspace.polwel.com/admin/api/idea-fe", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

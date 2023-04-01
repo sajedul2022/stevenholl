@@ -213,6 +213,12 @@ const [getuserdata, setUserdata] = useState([]);
 
 
 
+Database: 
 
 
+http://inspace.polwel.com/admin
 
+
+Db: polwel_inspace
+User: polwel_inspace
+Pass:  gMvh+)c-1=4N

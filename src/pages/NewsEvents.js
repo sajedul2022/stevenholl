@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function NewsEvents() {
-  
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
 
   const getdata = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/news-fe", {
+    // const res = await fetch("http://127.0.0.1:8000/api/news-fe", {
+    const res = await fetch("http://inspace.polwel.com/admin/api/news-fe", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -58,20 +58,21 @@ export default function NewsEvents() {
                         <img
                           // src="assets/images/uploads/3.jpg"
                           src={`http://127.0.0.1:8000/images/${element.image}`}
-                          alt={element.title}
+                          alt="Image"
                         />
                       </div>
                     </Link>
                   </div>
+                  <br /> <br />
                   <div className="content-wrap">
                     {/* <div className="metasec">{ element.created_at} </div> */}
-                    <h2>
-                      <Link to="/news">{element.title}</Link>
-                    </h2>
+                    <h3>
+                      {/* <Link to="/news">{element.title}</Link> */}
+                      {element.title}
+                    </h3>
                     <p className="news-content">
                       {element.short_des}
                       <span>
-                        {" "}
                         {/* <Link to="/single-news">more</Link>{" "} */}
                       </span>
                     </p>

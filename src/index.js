@@ -17,6 +17,7 @@ import Search from './pages/Search';
 import Museums from './category/Museums';
 import SingleProject from './category/SingleProject';
 import SingleNews from './category/SingleNews';
+import DesignCat from './pages/DesignCat';
 
 export default function RouterApp() {
   return (
@@ -34,7 +35,8 @@ export default function RouterApp() {
           <Route path="/single-news" element={<SingleNews />} /> 
           <Route path="/search" element={<Search />} /> 
           
-          
+          <Route path="/design-cat/:ids" element={<DesignCat />} />
+
         </Route>
       </Routes>
     </BrowserRouter>

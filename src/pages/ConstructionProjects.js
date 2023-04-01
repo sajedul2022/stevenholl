@@ -8,7 +8,8 @@ export default function ConstructionProjects() {
   console.log(getuserdata);
 
   const getdata = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/construction-title", {
+    // const res = await fetch("http://127.0.0.1:8000/api/const-cat", {
+    const res = await fetch("http://inspace.polwel.com/admin/api/const-cat", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +71,7 @@ export default function ConstructionProjects() {
                               id="menu-item-5915"
                               className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5915"
                             >
-                              <Link to="">{element.title}</Link>
+                              <Link to="">{element.name}</Link>
                             </li>
                           </>
                         );
@@ -89,7 +90,7 @@ export default function ConstructionProjects() {
                       <div className="newbox sub-paragraph">
                         <div className="titleSec">
                           <h2>
-                            <Link to="/single-project">
+                            <Link to="">
                               {/* NANCY AND RICH KINDER MUSEUM BUILDING, MUSEUM OF
                               FINE ARTS HOUSTON (MFAH) */}
                               {element.name}
@@ -98,10 +99,10 @@ export default function ConstructionProjects() {
                         </div>
                         <div className="img-wrap">
                           <Link to="/single-project">
-                            <img
+                            {/* <img
                               src={`http://127.0.0.1:8000/images/${element.image_01}`}
                               alt={element.title}
-                            />
+                            /> */}
                           </Link>
                         </div>
                       </div>

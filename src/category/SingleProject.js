@@ -8,7 +8,8 @@ export default function SingleProject() {
   console.log(getuserdata);
 
   const getdata = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/project-fe", {
+    const res = await fetch("http://inspace.polwel.com/admin/api/project-fe", {
+    // const res = await fetch("http://127.0.0.1:8000/api/project-fe", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
