@@ -27,15 +27,20 @@ export default function RouterApp() {
           <Route index element={<Home />} />
           <Route path="/studio-contact" element={<StudioContact />} />
           <Route path="/design-projects" element={<DesignProjects />} /> 
+          <Route path="/design-projects/:id" element={<DesignProjects />} />
+
           <Route path="/news" element={<NewsEvents />} /> 
           <Route path="/idea" element={<IdeaPhenomena />} /> 
           <Route path="/construction-projects" element={<ConstructionProjects />} /> 
           <Route path="/museums" element={<Museums />} /> 
           <Route path="/single-project" element={<SingleProject />} /> 
+          <Route path="/single-project/:id" element={<SingleProject />} /> 
+
+
           <Route path="/single-news" element={<SingleNews />} /> 
           <Route path="/search" element={<Search />} /> 
           
-          <Route path="/design-cat/:ids" element={<DesignCat />} />
+          {/* <Route path="/design-cat/:ids" element={<DesignCat />} /> */}
 
         </Route>
       </Routes>

@@ -2,14 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import Accordion from "react-bootstrap/Accordion";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function SingleProject() {
+
+  let params = useParams();
+  let navigate = useNavigate();
+
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
 
-  const getdata = async () => {
-    const res = await fetch("http://inspace.polwel.com/admin/api/project-fe", {
-    // const res = await fetch("http://127.0.0.1:8000/api/project-fe", {
+  const getdata = async (id) => {
+    // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/project-fe", {
+    const res = await fetch(`http://127.0.0.1:8000/api/design-item/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +33,7 @@ export default function SingleProject() {
   };
 
   useEffect(() => {
-    getdata();
+    getdata(params.id);
   }, []);
 
   return (

@@ -257,6 +257,6 @@ button.accordion-button {
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
 }
-a.carousel-control-prev {
+.Home a.carousel-control-prev {
   margin-left: -50px;
 }

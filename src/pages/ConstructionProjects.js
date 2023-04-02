@@ -8,8 +8,8 @@ export default function ConstructionProjects() {
   console.log(getuserdata);
 
   const getdata = async () => {
-    // const res = await fetch("http://127.0.0.1:8000/api/const-cat", {
-    const res = await fetch("http://inspace.polwel.com/admin/api/const-cat", {
+    const res = await fetch("http://127.0.0.1:8000/api/const-cat", {
+    // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/const-cat", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

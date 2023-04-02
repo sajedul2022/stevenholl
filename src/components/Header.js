@@ -20,8 +20,8 @@ export default function Header() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    // fetch("http://127.0.0.1:8000/api/basic-fe")
-    fetch("http://inspace.polwel.com/admin/api/basic-fe")
+    fetch("http://127.0.0.1:8000/api/basic-fe")
+    // fetch("https://inspace.bdprogrammers.com/admin/api/basic-fe")
       .then((res) => res.json())
       .then(
         (result) => {
