@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
+import { API_PATH, MAIN_PATH } from "../API_PATH";
 
 export default function ConstructionProjects() {
 
@@ -8,8 +9,8 @@ export default function ConstructionProjects() {
   console.log(getuserdata);
 
   const getdata = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/const-cat", {
-    // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/const-cat", {
+    const res = await fetch(`${API_PATH}/const-cat`, {
+      // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/const-cat", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -29,6 +30,38 @@ export default function ConstructionProjects() {
 
   useEffect(() => {
     getdata();
+  }, []);
+
+  // ==============  Project  fetch  =========================
+
+  let params = useParams();
+  let navigate = useNavigate();
+
+  const [getProject, setProject] = useState([]);
+  console.log(getProject);
+
+  const getProjectdata = async (id) => {
+    const result = await fetch(`${API_PATH}/project-fe`, {
+      // const result = await fetch(`${API_PATH}/design-item/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const datas = await result.json();
+    console.log(datas);
+
+    if (result.status === 422 || !datas) {
+      console.log("error ");
+    } else {
+      setProject(datas);
+      console.log("get datas22");
+    }
+  };
+
+  useEffect(() => {
+    getProjectdata(params.id);
   }, []);
 
   return (
@@ -83,26 +116,30 @@ export default function ConstructionProjects() {
             </div>
 
             <div className="col-sm-7 col-md-7 col-lg-7">
-              {getuserdata.map((element, id) => {
+              {getProject.map((item, ids) => {
                 return (
                   <>
                     <div className="SelectedProjectsSec">
-                      <div className="newbox sub-paragraph">
+                      <div
+                        key={(ids = 1)}
+                        item={item}
+                        className="newbox sub-paragraph"
+                      >
                         <div className="titleSec">
                           <h2>
-                            <Link to="">
+                            <Link to={`/single-project/${item.id}`}>
                               {/* NANCY AND RICH KINDER MUSEUM BUILDING, MUSEUM OF
                               FINE ARTS HOUSTON (MFAH) */}
-                              {element.name}
+                              {item.name}
                             </Link>
                           </h2>
                         </div>
                         <div className="img-wrap">
-                          <Link to="/single-project">
-                            {/* <img
-                              src={`http://127.0.0.1:8000/images/${element.image_01}`}
-                              alt={element.title}
-                            /> */}
+                          <Link to={`/single-project/${item.id}`}>
+                            <img
+                              src={`${MAIN_PATH}/images/${item.image_01}`}
+                              alt={item.name}
+                            />
                           </Link>
                         </div>
                       </div>

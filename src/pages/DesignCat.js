@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { API_PATH, MAIN_PATH } from "../API_PATH";
 
 export default function DesignCat() {
 
@@ -8,7 +9,7 @@ export default function DesignCat() {
 
   const getProjectdata = async (id) => {
     // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/design-cat", {
-    const res = await fetch("http://127.0.0.1:8000/api/design-item/id", {
+    const res = await fetch(`${API_PATH}/design-item/id`, { 
     
       method: "GET",
       headers: {
@@ -99,7 +100,8 @@ export default function DesignCat() {
                         <div className="img-wrap">
                           <Link to="/single-project">
                             <img
-                              src={`http://127.0.0.1:8000/images/${element.image_01}`}
+                              // src={`http://127.0.0.1:8000/images/${element.image_01}`} 
+                              src={`${MAIN_PATH}/images/${element.image_01}`}
                               alt={element.name}
                             />
                           </Link>

@@ -2,9 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-// import favicon from "../images/favicon.png";
-// import IMAGES from "../images/index.js";
-
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -13,6 +10,9 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Carousel from "react-bootstrap/Carousel";
 
+import { API_PATH, MAIN_PATH } from '../API_PATH';
+
+
 export default function Header() {
   
   const [error, setError] = useState(null);
@@ -20,7 +20,7 @@ export default function Header() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/basic-fe")
+    fetch(`${API_PATH}/basic-fe`) 
     // fetch("https://inspace.bdprogrammers.com/admin/api/basic-fe")
       .then((res) => res.json())
       .then(
@@ -49,7 +49,7 @@ export default function Header() {
                 <img
                   className="b-logo "
                   // src="assets/images/logo.png"
-                  src={`http://127.0.0.1:8000/images/${item.logo}`}
+                  src={`${MAIN_PATH}/images/${item.logo}`}  
                   style={{ height: "30px" }}
                   alt="Logo"
                 />

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { API_PATH } from "../API_PATH";
 
 export default function IdeaPhenomena() {
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
 
   const getdata = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/idea-fe", {
-    // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/idea-fe", {
+    const res = await fetch(`${API_PATH}/idea-fe`, { 
+    // const res = await fetch("https://inspce.bdprogrammers.com/admin/api/idea-fe", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

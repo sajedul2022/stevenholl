@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import Accordion from "react-bootstrap/Accordion";
 import { useNavigate, useParams } from "react-router-dom";
+import { API_PATH, MAIN_PATH } from '../API_PATH';
 
 export default function SingleProject() {
 
@@ -13,8 +14,8 @@ export default function SingleProject() {
   console.log(getuserdata);
 
   const getdata = async (id) => {
-    // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/project-fe", {
-    const res = await fetch(`http://127.0.0.1:8000/api/design-item/${id}`, {
+    // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/project-fe", { 
+    const res = await fetch(`${API_PATH}/project-fe`, { 
       method: "GET",
       headers: {
         "Content-Type": "application/json",

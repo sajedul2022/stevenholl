@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { API_PATH, MAIN_PATH } from '../API_PATH';
+
 
 export default function Footer() {
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
 
   const getdata = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/basic-fe", {
+    const res = await fetch(`${API_PATH}/basic-fe`, {  
     // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/basic-fe", {
       method: "GET",
       headers: {

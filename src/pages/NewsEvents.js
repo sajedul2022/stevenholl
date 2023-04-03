@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { API_PATH, MAIN_PATH } from "../API_PATH";
 
 export default function NewsEvents() {
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
 
   const getdata = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/news-fe", {
-    // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/news-fe", {
+    const res = await fetch(`${API_PATH}/news-fe`, {
+      // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/news-fe", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -56,8 +57,8 @@ export default function NewsEvents() {
                     <Link to="/news">
                       <div className="img">
                         <img
-                          // src="assets/images/uploads/3.jpg"
-                          src={`http://127.0.0.1:8000/images/${element.image}`}
+                          // src={`http://127.0.0.1:8000/images/${element.image}`}
+                          src={`${MAIN_PATH}/images/${element.image}`}
                           alt="Image"
                         />
                       </div>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
+import { API_PATH, MAIN_PATH } from "../API_PATH";
+
 
 export default function DesignProjects() {
   // Category Tittle
@@ -10,7 +12,7 @@ export default function DesignProjects() {
 
   const getdata = async () => {
     // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/design-cat", {
-    const res = await fetch("http://127.0.0.1:8000/api/design-cat", {
+    const res = await fetch(`${API_PATH}/design-cat`, { 
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -41,9 +43,8 @@ export default function DesignProjects() {
   console.log(getProject);
 
   const getProjectdata = async (id) => {
-    // const result = await fetch("https://inspace.bdprogrammers.com/admin/api/design-cat", {
-    // const result = await fetch("http://127.0.0.1:8000/api/project-fe", {
-    const result = await fetch(`http://127.0.0.1:8000/api/design-item/${id}`, {
+    const result = await fetch(`${API_PATH}/project-fe`, { 
+    // const result = await fetch(`${API_PATH}/design-item/${id}`, { 
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -141,7 +142,7 @@ export default function DesignProjects() {
                         <div className="img-wrap">
                           <Link to={`/single-project/${item.id}`}> 
                             <img
-                              src={`http://127.0.0.1:8000/images/${item.image_01}`}
+                              src={`${MAIN_PATH}/images/${item.image_01}`}
                               alt={item.name}
                             />
                           </Link>
