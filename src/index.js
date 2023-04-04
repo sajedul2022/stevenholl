@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import "./node_modules/video-react/dist/video-react.css";
 
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -32,6 +33,8 @@ export default function RouterApp() {
           <Route path="/news" element={<NewsEvents />} /> 
           <Route path="/idea" element={<IdeaPhenomena />} /> 
           <Route path="/construction-projects" element={<ConstructionProjects />} /> 
+          <Route path="/construction-projects/:id" element={<ConstructionProjects />} /> 
+
           <Route path="/museums" element={<Museums />} /> 
           <Route path="/single-project" element={<SingleProject />} /> 
           <Route path="/single-project/:id" element={<SingleProject />} /> 

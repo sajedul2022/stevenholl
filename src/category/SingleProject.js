@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import Accordion from "react-bootstrap/Accordion";
 import { useNavigate, useParams } from "react-router-dom";
-import { API_PATH, MAIN_PATH } from '../API_PATH';
+import { API_PATH, MAIN_PATH } from "../API_PATH";
+
+import { Player } from "video-react";
 
 export default function SingleProject() {
-
   let params = useParams();
   let navigate = useNavigate();
 
@@ -14,8 +15,7 @@ export default function SingleProject() {
   console.log(getuserdata);
 
   const getdata = async (id) => {
-    // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/project-fe", { 
-    const res = await fetch(`${API_PATH}/project-fe`, { 
+    const res = await fetch(`${API_PATH}/single_project/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -36,6 +36,8 @@ export default function SingleProject() {
   useEffect(() => {
     getdata(params.id);
   }, []);
+
+  
 
   return (
     <div>
@@ -87,15 +89,15 @@ export default function SingleProject() {
                         <Accordion.Header>Videos</Accordion.Header>
                         <Accordion.Body>
                           Watch Videos
-                          <iframe
-                            width="560"
-                            height="315"
-                            src={element.video}
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen
-                          ></iframe>
+                          <script>
+                            let video = {element.video}
+                          </script>
+                          <Player 
+                            playsInline
+                            poster="/assets/poster.png"
+                            src={element.video} 
+                            // src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                          />
                         </Accordion.Body>
                       </Accordion.Item>
 
@@ -207,7 +209,6 @@ export default function SingleProject() {
                           </p>
                         </Carousel.Caption> */}
                       </Carousel.Item>
-
                     </Carousel>
                   </div>
                 </div>

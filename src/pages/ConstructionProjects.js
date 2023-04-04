@@ -4,6 +4,7 @@ import Carousel from "react-bootstrap/Carousel";
 import { API_PATH, MAIN_PATH } from "../API_PATH";
 
 export default function ConstructionProjects() {
+  // cat design
 
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
@@ -31,6 +32,23 @@ export default function ConstructionProjects() {
   useEffect(() => {
     getdata();
   }, []);
+
+  // click event
+
+  const handleClick = async (id) => {
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:8000/api/cat_project/${id}`
+      );
+      const data = await response.json();
+      console.log(data);
+      setData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [users, setData] = useState([]);
 
   // ==============  Project  fetch  =========================
 
@@ -104,7 +122,14 @@ export default function ConstructionProjects() {
                               id="menu-item-5915"
                               className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5915"
                             >
-                              <Link to="">{element.name}</Link>
+                              {/* <Link  to={`/construction-projects/${element.id}`} >
+                                {element.name}
+                              </Link> */}
+
+                              <button onClick={() => handleClick(element.id)}>
+                                {element.name}
+                              </button>
+
                             </li>
                           </>
                         );
@@ -116,7 +141,7 @@ export default function ConstructionProjects() {
             </div>
 
             <div className="col-sm-7 col-md-7 col-lg-7">
-              {getProject.map((item, ids) => {
+              {users.map((item, ids) => {
                 return (
                   <>
                     <div className="SelectedProjectsSec">
