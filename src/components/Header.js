@@ -34,35 +34,81 @@ export default function Header() {
 
   return (
     <>
+      {/* menu  */}
+
       <div className="h-menu">
         <div className="table-responsive">
-          <table className="table table-bordered">
-            <tbody>
+          <table className="table ">
+            <tbody className="r-width">
               <tr>
-                <td>People</td>
-                <td> </td>
-                <td>Internship </td>
-                <td rowspan="2">Home</td>
-                <td colspan="2">Product Design</td>
-                <td></td>
-                <td rowspan="2">Contact</td>
+                <td className="fr-1" > <Link to="construction-projects">WORKS</Link></td>
+                <td className="fr-blank" > </td>
+                <td className="fr-2" >PRACTICE </td>
+                <td className="fr-blank2" ></td>
+                <td className="fr-blank3" ></td>
               </tr>
+
               <tr>
-                <td></td>
-                <td>Peoject </td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td>Reserch</td>
+                <td className="sr-blank" ></td>
+                <td className="sr-1" >PEOPLE </td>
+                <td className="sr-blank2" ></td>
+                <td className="sr-2">FUTURE COLLEAGUES</td>
+                <td className="sr-3" >CONTACT</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
+      {items.map((element, id) => {
+        return (
+          <>
+            {/* logo */}
+            <div className="h-logo">
+              <Link id="show-hidden-menu" className="sha" to="/">
+                <img
+                  className="b-logo "
+                  src="assets/images/logo.png"
+                  // src={`${MAIN_PATH}/images/${item.logo}`}
+                  style={{ height: "30px" }}
+                  alt="Logo"
+                />
+              </Link>
+            </div>
+
+            {/* social  */}
+            <div className="h-social">
+              <ul className="social-icon">
+                <li>
+                  <Link to={element.facebook} target="_blank">
+                    <img src="/assets/images/facebook.svg" alt="" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to={element.instagram} target="_blank">
+                    <img src="/assets/images/instagram.svg" alt="" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to={element.instagram} target="_blank">
+                    <img src="/assets/images/youtube.svg" alt="" />
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to={element.instagram} target="_blank">
+                    <img src="/assets/images/linkedin.svg" alt="" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </>
+        );
+      })}
+
       {/* mobile menu */}
 
-      {/* <Navbar fixed="top" bg="light" expand="lg">
+      <Navbar fixed="top" bg="light" expand="lg">
         <Container>
           <Link to="/">
             <Navbar.Brand to="/">
@@ -71,7 +117,6 @@ export default function Header() {
                 src="assets/images/logo.png"
                 style={{ height: "30px" }}
               />
-             
             </Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -81,7 +126,6 @@ export default function Header() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              
               <Nav.Link>
                 {" "}
                 <Link to="/">Home</Link>
@@ -97,7 +141,6 @@ export default function Header() {
                 <NavDropdown.Item>
                   <Link to="construction-projects">Construction Projects</Link>
                 </NavDropdown.Item>
-                
               </NavDropdown>
               <Nav.Link>
                 {" "}
@@ -119,7 +162,7 @@ export default function Header() {
             </Form>
           </Navbar.Collapse>
         </Container>
-      </Navbar> */}
+      </Navbar>
     </>
   );
 }

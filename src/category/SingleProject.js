@@ -37,17 +37,73 @@ export default function SingleProject() {
     getdata(params.id);
   }, []);
 
-  
-
   return (
     <div>
-      <div
+      {/* <div
         className="bgcommanSec"
         style={{
           // backgroundImage: `url("assets/images/uploads/6.jpg")`,
           backgroundColor: "#2f4966",
         }}
-      ></div>
+      ></div> */}
+
+      {getuserdata.map((element, id) => {
+        return (
+          <>
+            <div className="fullscreenslider ">
+              <div className=" ">
+                
+                <div className="">
+                  <Carousel variant="light">
+                    <Carousel.Item>
+                      <img
+                        className="d-block w-100"
+                        // src="assets/images/uploads/4.jpg"
+                        src={`http://127.0.0.1:8000/images/${element.image_01}`}
+                        alt="First slide"
+                      />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                      <img
+                        className="d-block w-100"
+                        // src="assets/images/uploads/2.jpg"
+                        src={`http://127.0.0.1:8000/images/${element.image_02}`}
+                        alt="Second slide"
+                      />
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                      <img
+                        className="d-block w-100"
+                        // src="assets/images/uploads/3.jpg"
+                        src={`http://127.0.0.1:8000/images/${element.image_03}`}
+                        alt="Third slide"
+                      />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                      <img
+                        className="d-block w-100"
+                        // src="assets/images/uploads/3.jpg"
+                        src={`http://127.0.0.1:8000/images/${element.image_04}`}
+                        alt="Third slide"
+                      />
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                      <img
+                        className="d-block w-100"
+                        // src="assets/images/uploads/3.jpg"
+                        src={`http://127.0.0.1:8000/images/${element.image_05}`}
+                        alt="Third slide"
+                      />
+                    </Carousel.Item>
+                  </Carousel>
+                </div>
+              </div>
+            </div>
+          </>
+        );
+      })}
 
       <div className="paragraph-section">
         <div className="row">
@@ -89,13 +145,11 @@ export default function SingleProject() {
                         <Accordion.Header>Videos</Accordion.Header>
                         <Accordion.Body>
                           Watch Videos
-                          <script>
-                            let video = {element.video}
-                          </script>
-                          <Player 
+                          <script>let video = {element.video}</script>
+                          <Player
                             playsInline
                             poster="/assets/poster.png"
-                            src={element.video} 
+                            src={element.video}
                             // src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
                           />
                         </Accordion.Body>
