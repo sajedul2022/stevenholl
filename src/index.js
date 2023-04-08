@@ -18,7 +18,7 @@ import Search from './pages/Search';
 import Museums from './category/Museums';
 import SingleProject from './category/SingleProject';
 import SingleNews from './category/SingleNews';
-import DesignCat from './pages/DesignCat';
+
 
 export default function RouterApp() {
   return (

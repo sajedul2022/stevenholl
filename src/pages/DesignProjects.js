@@ -64,51 +64,21 @@ export default function DesignProjects() {
   //   getProjectdata(params.id);
   // }, []);
 
-  // =================== click Event  ========================
-
-  // click Handle Project  Api
-
-  // const { ids } = useParams();
-  // console.log(id);
-
-  // const [users, setUsers] = useState([]);
-
-  // async format
-  // const getData = async (getId) => {
-  //   const res = await fetch(`${API_PATH}/cat_project/${getId}`, {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     // params: { ids },
-  //   });
-
-  //   const data = await res.json();
-  //   setUsers(data);
-  // };
-
+  
   // ==============   main Click =====================
 
   // const onClick   = (e) => {
   //   const getId   = e.currentTarget.getAttribute("data-value1");
   //   console.log(getId);
   // //  alert(getId);
-  //   const res =  fetch(`${API_PATH}/cat_project/${getId}`, {
-  //     // const res = await fetch(`${API_PATH}/cat_project/2`, {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   setUsers(res);
-  //     console.log(res);
-  //    //   const data =  res.json();
-  //   //  setUsers(data);
+  //   
   // };
 
+  
   const handleClick = async (id) => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/cat_project/${id}`);
+      const response = await fetch(`${API_PATH}/cat_project/${id}`);
+      // const response = await fetch(`https://inspace.bdprogrammers.com/admin/api/cat_project/${id}`);
       const data = await response.json();
       console.log(data);
       setData(data);

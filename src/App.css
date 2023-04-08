@@ -260,3 +260,14 @@ button.accordion-button {
 .Home a.carousel-control-prev {
   margin-left: -50px;
 }
+.h-menu {
+  position: fixed;
+  bottom: 20px;
+  right: 300px;
+  display: table;
+  width: 900px;
+}
+
+table.table.table-bordered {
+  color: #fff;
+}

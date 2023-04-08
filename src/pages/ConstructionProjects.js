@@ -4,6 +4,7 @@ import Carousel from "react-bootstrap/Carousel";
 import { API_PATH, MAIN_PATH } from "../API_PATH";
 
 export default function ConstructionProjects() {
+
   // cat design
 
   const [getuserdata, setUserdata] = useState([]);
@@ -37,9 +38,8 @@ export default function ConstructionProjects() {
 
   const handleClick = async (id) => {
     try {
-      const response = await fetch(
-        `http://127.0.0.1:8000/api/cat_project/${id}`
-      );
+      const response = await fetch(`${API_PATH}/cat_project/${id}`);
+      // const response = fetch(`https://inspace.bdprogrammers.com/admin/api/cat_project/${id}`);
       const data = await response.json();
       console.log(data);
       setData(data);
@@ -81,6 +81,8 @@ export default function ConstructionProjects() {
   useEffect(() => {
     getProjectdata(params.id);
   }, []);
+
+  // return 
 
   return (
     <div className="constProject">
