@@ -105,7 +105,7 @@ export default function SingleProject() {
         );
       })}
 
-      <div className="paragraph-section">
+      <div className="paragraph-section container single-project">
         <div className="row">
           {getuserdata.map((element, id) => {
             return (
@@ -113,7 +113,10 @@ export default function SingleProject() {
                 <div className="col-sm-5 col-md-5 col-lg-5">
                   <div>
                     <div className="sub-paragraph">
-                      <div className="title_module">
+                      <div className="title_module"> 
+                        <h1> Project Title: </h1>
+                      </div>
+                      <div className="title_module"> 
                         <h1>{element.name}</h1>
                       </div>
                     </div>
@@ -184,8 +187,10 @@ export default function SingleProject() {
                   </div>
                 </div>
 
-                <div className=" col-sm-6 col-md-6 col-lg-6">
-                  <div className="sub-paragraph"> Projects Images </div>
+                <div className=" col-sm-7 col-md-7 col-lg-7 body-content">
+                  {/* <div className="sub-paragraph"> 
+                  Projects Images 
+                  </div> */}
                   <div className="">
                     <Carousel variant="light">
                       <Carousel.Item>

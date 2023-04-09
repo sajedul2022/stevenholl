@@ -191,18 +191,19 @@ const [getuserdata, setUserdata] = useState([]);
 
 
  {getuserdata.map((element, id) => {
-                    return (
-                      <>
-                        <tr>
-                            <th scope="row" key={id} item={element}>{id + 1}</th>
-                            <td>{element.name}</td>
-                            <td>{element.email}</td>
-                            
-                        </tr>
-                        
-                      </>
-                    )
-    })}
+    return (
+      <>
+
+        <tr>
+            <th scope="row" key={id} item={element}>{id + 1}</th>
+            <td>{element.name}</td>
+            <td>{element.email}</td>
+            
+        </tr>
+      
+      </>
+    )
+})}
 
 
 
@@ -256,3 +257,31 @@ export const MAIN_PATH = 'http://127.0.0.1:8000';
 {/* <img src={`${API_PATH}/assets/images/product/${item.thumbnail}`} alt="shope" /> */}
 
 // src={`${MAIN_PATH}/images/${item.logo}`}
+
+
+                              ============= Active class ==============
+
+import { useLocation } from "react-router-dom";
+
+//assigning location variable
+    const location = useLocation();
+
+//destructuring pathname from location
+    const { pathname } = location;
+
+//Javascript split method to get the name of the path in array
+    const splitLocation = pathname.split("/");
+
+    // return 
+
+className={splitLocation[1] === "" ? "active" : ""}
+
+<li className={splitLocation[1] === "" ? "active" : ""}>
+      <Link to='/'>Home</Link>
+</li>
+
+OR
+
+<NavLink  activeClassName="active" to="/news">
+      PRACTICE
+</NavLink>

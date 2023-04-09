@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -8,6 +8,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { useLocation } from "react-router-dom";
 
 import { API_PATH, MAIN_PATH } from "../API_PATH";
 
@@ -32,6 +33,17 @@ export default function Header() {
       );
   }, []);
 
+  // Active css on click
+  
+  //assigning location variable
+  const location = useLocation();
+
+  //destructuring pathname from location
+      const { pathname } = location;
+  
+  //Javascript split method to get the name of the path in array
+      const splitLocation = pathname.split("/");
+
   return (
     <>
       {/* menu  */}
@@ -41,23 +53,42 @@ export default function Header() {
           <table className="table ">
             <tbody className="r-width">
               <tr>
-                <td className="fr-1" > <Link to="construction-projects">WORKS</Link></td>
-                <td className="fr-blank" > </td>
-                <td className="fr-2" >PRACTICE </td>
-                <td className="fr-blank2" ></td>
-                <td className="fr-blank3" ></td>
+                <td className={splitLocation[1] === "construction-projects" ? "active" : "" } >
+                  <NavLink exact activeClassName="active"
+                    className="fr-1"
+                    to="construction-projects"
+                  >
+                    WORKS
+                  </NavLink>
+                </td>
+                <td className="fr-blank"> </td>
+                <td  className={splitLocation[1] === "news" ? "active" : "" } >
+                  <NavLink  activeClassName="active" to="/news">
+                    PRACTICE
+                  </NavLink>
+                </td>
+                <td className="fr-blank2"></td>
+                <td className="fr-blank3"></td>
               </tr>
 
               <tr>
-                <td className="sr-blank" ></td>
-                <td className="sr-1" >PEOPLE </td>
-                <td className="sr-blank2" ></td>
-                <td className="sr-2">FUTURE COLLEAGUES</td>
-                <td className="sr-3" >CONTACT</td>
+                <td className="sr-blank"></td>
+                <td  className={splitLocation[1] === "design-projects" ? "active" : "" } > 
+                <Link className="sr-1" to="/design-projects"> PEOPLE </Link> 
+                </td>
+                <td className="sr-blank2"></td>
+                <td className={splitLocation[1] === "idea" ? "active" : "" }>
+                  <Link className="sr-1" to="/idea"> FUTURE COLLEAGUES </Link> 
+                </td>
+                <td className={splitLocation[1] === "studio-contact" ? "active" : "" }>
+                <Link className="sr-1" to="/studio-contact"> CONTACT </Link>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
+
+        
       </div>
 
       {items.map((element, id) => {
@@ -74,33 +105,6 @@ export default function Header() {
                   alt="Logo"
                 />
               </Link>
-            </div>
-
-            {/* social  */}
-            <div className="h-social">
-              <ul className="social-icon">
-                <li>
-                  <Link to={element.facebook} target="_blank">
-                    <img src="/assets/images/facebook.svg" alt="" />
-                  </Link>
-                </li>
-                <li>
-                  <Link to={element.instagram} target="_blank">
-                    <img src="/assets/images/instagram.svg" alt="" />
-                  </Link>
-                </li>
-                <li>
-                  <Link to={element.instagram} target="_blank">
-                    <img src="/assets/images/youtube.svg" alt="" />
-                  </Link>
-                </li>
-
-                <li>
-                  <Link to={element.instagram} target="_blank">
-                    <img src="/assets/images/linkedin.svg" alt="" />
-                  </Link>
-                </li>
-              </ul>
             </div>
           </>
         );

@@ -4,7 +4,6 @@ import Carousel from "react-bootstrap/Carousel";
 import { API_PATH, MAIN_PATH } from "../API_PATH";
 
 export default function ConstructionProjects() {
-
   // cat design
 
   const [getuserdata, setUserdata] = useState([]);
@@ -53,7 +52,6 @@ export default function ConstructionProjects() {
   // ==============  Project  fetch  =========================
 
   let params = useParams();
-  let navigate = useNavigate();
 
   const [getProject, setProject] = useState([]);
   console.log(getProject);
@@ -82,10 +80,10 @@ export default function ConstructionProjects() {
     getProjectdata(params.id);
   }, []);
 
-  // return 
+  // return
 
   return (
-    <div className="constProject">
+    <div className="constProject ">
       <div
         className="bgcommanSec fullscreenslider"
         style={{
@@ -94,80 +92,91 @@ export default function ConstructionProjects() {
         }}
       ></div>
 
-      <div className="paragraph-section">
-        <div className="container">
-          <div className="sub-paragraph">
-            <h1>Construction Projects</h1>
-          </div>
-
-          <div className="row">
-            <div className="col-sm-4 col-md-4 col-lg-4">
-              <header>
-                <div className="sub-nav">
-                  <div className="menu-project-page-menu-container">
-                    <ul id="project-pagemenu" className="menu">
+      <div className="paragraph-section container">
+        <div className="row">
+          <div className="col-sm-3 col-md-3 col-lg-3">
+            <div className="">
+              <ul id="project-pagemenu" className="menu">
+                {getuserdata.map((element, id) => {
+                  return (
+                    <>
                       <li
-                        id="menu-item-5906"
-                        className="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5832 current_page_item menu-item-5906"
+                        key={id}
+                        item={element}
+                        id="menu-item-5915"
+                        className=""
                       >
-                        <a href="#" aria-current="page">
-                          Selected Projects
-                        </a>
-                      </li>
-
-                      {getuserdata.map((element, id) => {
-                        return (
-                          <>
-                            <li
-                              key={id}
-                              item={element}
-                              id="menu-item-5915"
-                              className="menu-item menu-item-type-taxonomy menu-item-object-category_projects menu-item-5915"
-                            >
-                              {/* <Link  to={`/construction-projects/${element.id}`} >
+                        {/* <Link  to={`/construction-projects/${element.id}`} >
                                 {element.name}
                               </Link> */}
 
-                              <button onClick={() => handleClick(element.id)}>
-                                {element.name}
-                              </button>
-
-                            </li>
-                          </>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                </div>
-              </header>
+                        <button onClick={() => handleClick(element.id)}>
+                          {element.name}
+                        </button>
+                      </li>
+                    </>
+                  );
+                })}
+              </ul>
             </div>
+          </div>
 
-            <div className="col-sm-7 col-md-7 col-lg-7">
+          <div className="col-sm-8 col-md-8 col-lg-8 body-content">
+            <div className="row">
+
+              {/* All  */}
+
+              {/* {getProject.map((item, ids) => {
+                return (
+                  <>
+                    <div className="col-sm-3 col-md-3 col-lg-3 project-item">
+                      <div className="">
+                        <div key={(ids = 1)} item={item} className="">
+                          <div className="img-wrap">
+                            <Link to={`/single-project/${item.id}`}>
+                              <img
+                                src={`${MAIN_PATH}/images/${item.image_01}`}
+                                alt={item.name}
+                              />
+                            </Link>
+                          </div>
+
+                          <div className="titleSec">
+                            <h2>
+                              <Link to={`/single-project/${item.id}`}>
+                                {item.name}
+                              </Link>
+                            </h2>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                );
+              })} */}
+
               {users.map((item, ids) => {
                 return (
                   <>
-                    <div className="SelectedProjectsSec">
-                      <div
-                        key={(ids = 1)}
-                        item={item}
-                        className="newbox sub-paragraph"
-                      >
-                        <div className="titleSec">
-                          <h2>
+                    <div className="col-sm-3 col-md-3 col-lg-3 project-item">
+                      <div className="">
+                        <div key={(ids = 1)} item={item} className="">
+                          <div className="img-wrap">
                             <Link to={`/single-project/${item.id}`}>
-                              {/* NANCY AND RICH KINDER MUSEUM BUILDING, MUSEUM OF
-                              FINE ARTS HOUSTON (MFAH) */}
-                              {item.name}
+                              <img
+                                src={`${MAIN_PATH}/images/${item.image_01}`}
+                                alt={item.name}
+                              />
                             </Link>
-                          </h2>
-                        </div>
-                        <div className="img-wrap">
-                          <Link to={`/single-project/${item.id}`}>
-                            <img
-                              src={`${MAIN_PATH}/images/${item.image_01}`}
-                              alt={item.name}
-                            />
-                          </Link>
+                          </div>
+
+                          <div className="titleSec">
+                            <h2>
+                              <Link to={`/single-project/${item.id}`}>
+                                {item.name}
+                              </Link>
+                            </h2>
+                          </div>
                         </div>
                       </div>
                     </div>
