@@ -39,20 +39,19 @@ export default function SingleProject() {
 
   return (
     <div>
-      {/* <div
+      <div
         className="bgcommanSec"
         style={{
           // backgroundImage: `url("assets/images/uploads/6.jpg")`,
           backgroundColor: "#2f4966",
         }}
-      ></div> */}
+      ></div>
 
       {getuserdata.map((element, id) => {
         return (
           <>
-            <div className="fullscreenslider ">
+            <div className="fullscreenslider single-carousel-out ">
               <div className=" ">
-                
                 <div className="">
                   <Carousel variant="light">
                     <Carousel.Item>
@@ -113,14 +112,14 @@ export default function SingleProject() {
                 <div className="col-sm-5 col-md-5 col-lg-5">
                   <div>
                     <div className="sub-paragraph">
-                      <div className="title_module"> 
-                        <h1> Project Title: </h1>
-                      </div>
-                      <div className="title_module"> 
-                        <h1>{element.name}</h1>
+                      
+                        
+                      
+                      <div className="title_module">
+                      <h1> Project Title: {element.name} </h1>
+                      <h1></h1>
                       </div>
                     </div>
-                    <br />
                     <Accordion>
                       <Accordion.Item eventKey="0">
                         <Accordion.Header>Description</Accordion.Header>
@@ -191,7 +190,7 @@ export default function SingleProject() {
                   {/* <div className="sub-paragraph"> 
                   Projects Images 
                   </div> */}
-                  <div className="">
+                  <div className="single-carousel-in">
                     <Carousel variant="light">
                       <Carousel.Item>
                         <img

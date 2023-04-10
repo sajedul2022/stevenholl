@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import { API_PATH, MAIN_PATH } from "../API_PATH";
 
 export default function ConstructionProjects() {
   // cat design
+
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
 
@@ -79,27 +80,42 @@ export default function ConstructionProjects() {
     getProjectdata(params.id);
   }, []);
 
+
+  //assigning location variable
+  const location = useLocation();
+
+  //destructuring pathname from location
+      const { pathname } = location;
+  
+  //Javascript split method to get the name of the path in array
+      const splitLocation = pathname.split("/");
+
   // return
 
   return (
-    <>
+    <div className="constProject ">
       <div
         className="bgcommanSec fullscreenslider"
         style={{
           // backgroundImage: `url("assets/images/uploads/1.jpg")`,
-          backgroundColor: "#0025db7d"
+          backgroundColor: "#2f4966",
         }}
       ></div>
 
-      <div className="container">
+      <div className="paragraph-section container">
         <div className="row">
           <div className="col-sm-3 col-md-3 col-lg-3">
-            <div className="sub-menu">
-              <ul className="menu">
+            <div className="">
+              <ul id="project-pagemenu" className="menu">
                 {getuserdata.map((element, id) => {
                   return (
                     <>
-                      <li key={id} item={element} id="menu-item-5915">
+                      <li 
+                        key={id}
+                        item={element}
+                        id="menu-item-5915"
+                        
+                      >
                         {/* <Link  to={`/construction-projects/${element.id}`} >
                                 {element.name}
                               </Link> */}
@@ -115,12 +131,12 @@ export default function ConstructionProjects() {
             </div>
           </div>
 
-          <div className="col-sm-8 col-md-8 col-lg-8 ">
-            <div className="body-content">
-              <div className="row">
-                {/* All  */}
+          <div className="col-sm-8 col-md-8 col-lg-8 body-content">
+            <div className="row">
 
-                {/* {getProject.map((item, ids) => {
+              {/* All  */}
+
+              {/* {getProject.map((item, ids) => {
                 return (
                   <>
                     <div className="col-sm-3 col-md-3 col-lg-3 project-item">
@@ -147,63 +163,40 @@ export default function ConstructionProjects() {
                     </div>
                   </>
                 );
-                })} */}
+              })} */}
 
-                {users.map((item, ids) => {
-                  return (
-                    <>
-                      <div className="col-sm-3 col-md-3 col-lg-3  project-item ">
+              {users.map((item, ids) => {
+                return (
+                  <>
+                    <div className="col-sm-3 col-md-3 col-lg-3 project-item">
+                      <div className="">
+                        <div key={(ids = 1)} item={item} className="">
+                          <div className="img-wrap">
+                            <Link to={`/single-project/${item.id}`}>
+                              <img
+                                src={`${MAIN_PATH}/images/${item.image_01}`}
+                                alt={item.name}
+                              />
+                            </Link>
+                          </div>
 
-                        <div className="">
-                          <div key={(ids = 1)} item={item} className="">
-                            <div className="img-wrap">
+                          <div className="titleSec">
+                            <h2>
                               <Link to={`/single-project/${item.id}`}>
-                                <img
-                                  src={`${MAIN_PATH}/images/${item.image_01}`}
-                                  alt={item.name}
-                                />
+                                {item.name}
                               </Link>
-                            </div>
-
-                            <div className="titleSec">
-                              <h2>
-                                <Link to={`/single-project/${item.id}`}>
-                                  {item.name}
-                                </Link>
-                              </h2>
-                            </div>
+                            </h2>
                           </div>
                         </div>
-
-                        {/* <div className="single-carousel-in key={(ids = 1)} item={item}">
-                          <Carousel variant="light" >
-                            <Carousel.Item >
-                              <img
-                                className="d-block w-100"
-                                // src="assets/images/uploads/4.jpg"
-                                src={`${MAIN_PATH}/images/${item.image_01}`}
-                                alt="First slide"
-                              />
-                            </Carousel.Item>
-                          </Carousel>
-                          <div className="titleSec">
-                              <h2>
-                                <Link to={`/single-project/${item.id}`}>
-                                  {item.name}
-                                </Link>
-                              </h2>
-                            </div>
-                        </div> */}
-
                       </div>
-                    </>
-                  );
-                })}
-              </div>
+                    </div>
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

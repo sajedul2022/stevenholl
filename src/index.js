@@ -18,6 +18,8 @@ import Search from './pages/Search';
 import Museums from './category/Museums';
 import SingleProject from './category/SingleProject';
 import SingleNews from './category/SingleNews';
+import People from './pages/People';
+import Pratice from './pages/Pratice';
 
 
 export default function RouterApp() {
@@ -27,23 +29,35 @@ export default function RouterApp() {
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
           <Route path="/studio-contact" element={<StudioContact />} />
-          <Route path="/design-projects" element={<DesignProjects />} /> 
-          <Route path="/design-projects/:id" element={<DesignProjects />} />
+          <Route path="/people" element={<People />} />
+          <Route path="/pratice" element={<Pratice />} />
+
+
+          <Route path="/construction-projects" element={<ConstructionProjects />} /> 
+          <Route path="/construction-projects/:id" element={<ConstructionProjects />} /> 
+          <Route path="/single-project" element={<SingleProject />} /> 
+          <Route path="/single-project/:id" element={<SingleProject />} /> 
+
+
+          
 
           <Route path="/news" element={<NewsEvents />} /> 
           <Route path="/idea" element={<IdeaPhenomena />} /> 
-          <Route path="/construction-projects" element={<ConstructionProjects />} /> 
-          <Route path="/construction-projects/:id" element={<ConstructionProjects />} /> 
+          
 
           <Route path="/museums" element={<Museums />} /> 
-          <Route path="/single-project" element={<SingleProject />} /> 
-          <Route path="/single-project/:id" element={<SingleProject />} /> 
+          
 
 
           <Route path="/single-news" element={<SingleNews />} /> 
           <Route path="/search" element={<Search />} /> 
           
           {/* <Route path="/design-cat/:ids" element={<DesignCat />} /> */}
+
+
+         
+
+
 
         </Route>
       </Routes>

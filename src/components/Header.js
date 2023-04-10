@@ -62,8 +62,8 @@ export default function Header() {
                   </NavLink>
                 </td>
                 <td className="fr-blank"> </td>
-                <td  className={splitLocation[1] === "news" ? "active" : "" } >
-                  <NavLink  activeClassName="active" to="/news">
+                <td  className={splitLocation[1] === "pratice" ? "active" : "" } >
+                  <NavLink  activeClassName="active" to="/pratice">
                     PRACTICE
                   </NavLink>
                 </td>
@@ -73,8 +73,8 @@ export default function Header() {
 
               <tr>
                 <td className="sr-blank"></td>
-                <td  className={splitLocation[1] === "design-projects" ? "active" : "" } > 
-                <Link className="sr-1" to="/design-projects"> PEOPLE </Link> 
+                <td  className={splitLocation[1] === "people" ? "active" : "" } > 
+                <Link className="sr-1" to="/people"> PEOPLE </Link> 
                 </td>
                 <td className="sr-blank2"></td>
                 <td className={splitLocation[1] === "idea" ? "active" : "" }>

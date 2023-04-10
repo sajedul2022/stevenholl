@@ -3,7 +3,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import { API_PATH, MAIN_PATH } from "../API_PATH";
 
-export default function ConstructionProjects() {
+export default function People() {
   // cat design
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
@@ -87,7 +87,7 @@ export default function ConstructionProjects() {
         className="bgcommanSec fullscreenslider"
         style={{
           // backgroundImage: `url("assets/images/uploads/1.jpg")`,
-          backgroundColor: "#0025db7d"
+          backgroundColor: "#0025db7d",
         }}
       ></div>
 
@@ -153,7 +153,6 @@ export default function ConstructionProjects() {
                   return (
                     <>
                       <div className="col-sm-3 col-md-3 col-lg-3  project-item ">
-
                         <div className="">
                           <div key={(ids = 1)} item={item} className="">
                             <div className="img-wrap">
@@ -194,7 +193,6 @@ export default function ConstructionProjects() {
                               </h2>
                             </div>
                         </div> */}
-
                       </div>
                     </>
                   );
