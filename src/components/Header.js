@@ -109,8 +109,8 @@ export default function Header() {
               <Link id="show-hidden-menu" className="sha" to="/">
                 <img
                   className="b-logo "
-                  src="assets/images/logo.png"
-                  // src={`${MAIN_PATH}/images/${item.logo}`}
+                  // src="assets/images/logo.png"
+                  src={`${MAIN_PATH}/images/${element.logo}`}
                   style={{ height: "30px" }}
                   alt="Logo"
                 />
@@ -121,68 +121,75 @@ export default function Header() {
       })}
 
       {/* mobile menu */}
+      {items.map((element, id) => {
+        return (
+          <>
+            <div className="m-nav">
+              <Navbar fixed="top" bg="light" expand="lg">
+                <Container>
+                  <Link to="/">
+                    <Navbar.Brand to="/">
+                      <img
+                        className="m-logo"
+                        // src="assets/images/logo.png"
+                        src={`${MAIN_PATH}/images/${element.logo}`}
+                        style={{ height: "30px" }}
+                      />
+                    </Navbar.Brand>
+                  </Link>
+                  <Navbar.Toggle aria-controls="navbarScroll" />
+                  <Navbar.Collapse id="navbarScroll">
+                    <Nav
+                      className="me-auto my-2 my-lg-0"
+                      style={{ maxHeight: "100px" }}
+                      navbarScroll
+                    >
+                      <Nav.Link>
+                        <NavLink
+                          exact
+                          activeClassName="active2"
+                          className="fr-1"
+                          to="/"
+                        >
+                          HOME
+                        </NavLink>
+                      </Nav.Link>
 
-      <div className="m-nav">
-        <Navbar fixed="top" bg="light" expand="lg">
-          <Container>
-            <Link to="/">
-              <Navbar.Brand to="/">
-                <img
-                  className="m-logo"
-                  src="assets/images/logo.png"
-                  style={{ height: "30px" }}
-                />
-              </Navbar.Brand>
-            </Link>
-            <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll">
-              <Nav
-                className="me-auto my-2 my-lg-0"
-                style={{ maxHeight: "100px" }}
-                navbarScroll
-              >
-                <Nav.Link>
-                  <NavLink
-                    exact
-                    activeClassName="active2"
-                    className="fr-1"
-                    to="/"
-                  >
-                    HOME
-                  </NavLink>
-                </Nav.Link>
+                      <Nav.Link>
+                        <NavLink
+                          activeClassName="active2"
+                          className="fr-1"
+                          to="works"
+                        >
+                          WORKS
+                        </NavLink>
+                      </Nav.Link>
 
-                <Nav.Link>
-                  <NavLink activeClassName="active2" className="fr-1" to="works">
-                    WORKS
-                  </NavLink>
-                </Nav.Link>
+                      <Nav.Link>
+                        <NavLink activeClassName="active2" to="/pratice">
+                          PRACTICE
+                        </NavLink>
+                      </Nav.Link>
 
-                <Nav.Link>
-                  <NavLink activeClassName="active2" to="/pratice">
-                    PRACTICE
-                  </NavLink>
-                </Nav.Link>
+                      <Nav.Link>
+                        <NavLink activeClassName="active2" to="/people">
+                          PEOPLE
+                        </NavLink>
+                      </Nav.Link>
 
-                <Nav.Link>
-                  <NavLink activeClassName="active2" to="/people">
-                    PEOPLE
-                  </NavLink>
-                </Nav.Link>
+                      <Nav.Link>
+                        <NavLink activeClassName="active2" to="/colleagues">
+                          FUTURE COLLEAGUES
+                        </NavLink>
+                      </Nav.Link>
 
-                <Nav.Link>
-                  <NavLink activeClassName="active2" to="/colleagues">
-                    FUTURE COLLEAGUES
-                  </NavLink>
-                </Nav.Link>
+                      {/* <Nav.Link> */}
+                      <NavLink activeClassName="active2" to="/contact">
+                        CONTACT
+                      </NavLink>
+                      {/* </Nav.Link> */}
 
-                {/* <Nav.Link> */}
-                  <NavLink activeClassName="active2" to="/contact">
-                    CONTACT
-                  </NavLink>
-                {/* </Nav.Link> */}
-
-                {/* <NavDropdown title="Projects" id="navbarScrollingDropdown">
+                      {/* <NavDropdown title="Projects" id="navbarScrollingDropdown">
                   <NavDropdown.Item>
                     <Link to="design-projects">Design Projects</Link>
                   </NavDropdown.Item>
@@ -190,9 +197,9 @@ export default function Header() {
                     <Link to="construction-projects">Construction Projects</Link>
                   </NavDropdown.Item>
                  </NavDropdown> */}
-              </Nav>
+                    </Nav>
 
-              {/* <Form className="d-flex">
+                    {/* <Form className="d-flex">
                 <Form.Control
                   type="search"
                   placeholder="Search"
@@ -201,10 +208,13 @@ export default function Header() {
                 />
                 <Button variant="outline-success">Search</Button>
               </Form> */}
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-      </div>
+                  </Navbar.Collapse>
+                </Container>
+              </Navbar>
+            </div>
+          </>
+        );
+      })}
     </>
   );
 }
