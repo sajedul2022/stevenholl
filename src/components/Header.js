@@ -34,15 +34,15 @@ export default function Header() {
   }, []);
 
   // Active css on click
-  
+
   //assigning location variable
   const location = useLocation();
 
   //destructuring pathname from location
-      const { pathname } = location;
-  
+  const { pathname } = location;
+
   //Javascript split method to get the name of the path in array
-      const splitLocation = pathname.split("/");
+  const splitLocation = pathname.split("/");
 
   return (
     <>
@@ -53,17 +53,19 @@ export default function Header() {
           <table className="table ">
             <tbody className="r-width">
               <tr>
-                <td className={splitLocation[1] === "construction-projects" ? "active" : "" } >
-                  <NavLink exact activeClassName="active"
+                <td className={splitLocation[1] === "works" ? "active" : ""}>
+                  <NavLink
+                    exact
+                    activeClassName="active"
                     className="fr-1"
-                    to="construction-projects"
+                    to="works"
                   >
                     WORKS
                   </NavLink>
                 </td>
                 <td className="fr-blank"> </td>
-                <td  className={splitLocation[1] === "pratice" ? "active" : "" } >
-                  <NavLink  activeClassName="active" to="/pratice">
+                <td className={splitLocation[1] === "pratice" ? "active" : ""}>
+                  <NavLink activeClassName="active" to="/pratice">
                     PRACTICE
                   </NavLink>
                 </td>
@@ -73,22 +75,30 @@ export default function Header() {
 
               <tr>
                 <td className="sr-blank"></td>
-                <td  className={splitLocation[1] === "people" ? "active" : "" } > 
-                <Link className="sr-1" to="/people"> PEOPLE </Link> 
+                <td className={splitLocation[1] === "people" ? "active" : ""}>
+                  <Link className="sr-1" to="/people">
+                    PEOPLE
+                  </Link>
                 </td>
                 <td className="sr-blank2"></td>
-                <td className={splitLocation[1] === "idea" ? "active" : "" }>
-                  <Link className="sr-1" to="/idea"> FUTURE COLLEAGUES </Link> 
+                <td
+                  className={splitLocation[1] === "colleagues" ? "active" : ""}
+                >
+                  <Link className="sr-1" to="/colleagues">
+                    {" "}
+                    FUTURE COLLEAGUES{" "}
+                  </Link>
                 </td>
-                <td className={splitLocation[1] === "studio-contact" ? "active" : "" }>
-                <Link className="sr-1" to="/studio-contact"> CONTACT </Link>
+                <td className={splitLocation[1] === "contact" ? "active" : ""}>
+                  <Link className="sr-1" to="/contact">
+                    {" "}
+                    CONTACT{" "}
+                  </Link>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-
-        
       </div>
 
       {items.map((element, id) => {
@@ -112,61 +122,89 @@ export default function Header() {
 
       {/* mobile menu */}
 
-      <Navbar fixed="top" bg="light" expand="lg">
-        <Container>
-          <Link to="/">
-            <Navbar.Brand to="/">
-              <img
-                className="m-logo"
-                src="assets/images/logo.png"
-                style={{ height: "30px" }}
-              />
-            </Navbar.Brand>
-          </Link>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <Nav.Link>
-                {" "}
-                <Link to="/">Home</Link>
-              </Nav.Link>
-              <Nav.Link>
-                {" "}
-                <Link to="studio-contact">Contact</Link>{" "}
-              </Nav.Link>
-              <NavDropdown title="Projects" id="navbarScrollingDropdown">
-                <NavDropdown.Item>
-                  <Link to="design-projects">Design Projects</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link to="construction-projects">Construction Projects</Link>
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link>
-                {" "}
-                <Link to="news">News & Events</Link>{" "}
-              </Nav.Link>
-              <Nav.Link>
-                {" "}
-                <Link to="idea">Idea </Link>{" "}
-              </Nav.Link>
-            </Nav>
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      <div className="m-nav">
+        <Navbar fixed="top" bg="light" expand="lg">
+          <Container>
+            <Link to="/">
+              <Navbar.Brand to="/">
+                <img
+                  className="m-logo"
+                  src="assets/images/logo.png"
+                  style={{ height: "30px" }}
+                />
+              </Navbar.Brand>
+            </Link>
+            <Navbar.Toggle aria-controls="navbarScroll" />
+            <Navbar.Collapse id="navbarScroll">
+              <Nav
+                className="me-auto my-2 my-lg-0"
+                style={{ maxHeight: "100px" }}
+                navbarScroll
+              >
+                <Nav.Link>
+                  <NavLink
+                    exact
+                    activeClassName="active2"
+                    className="fr-1"
+                    to="/"
+                  >
+                    HOME
+                  </NavLink>
+                </Nav.Link>
+
+                <Nav.Link>
+                  <NavLink activeClassName="active2" className="fr-1" to="works">
+                    WORKS
+                  </NavLink>
+                </Nav.Link>
+
+                <Nav.Link>
+                  <NavLink activeClassName="active2" to="/pratice">
+                    PRACTICE
+                  </NavLink>
+                </Nav.Link>
+
+                <Nav.Link>
+                  <NavLink activeClassName="active2" to="/people">
+                    PEOPLE
+                  </NavLink>
+                </Nav.Link>
+
+                <Nav.Link>
+                  <NavLink activeClassName="active2" to="/colleagues">
+                    FUTURE COLLEAGUES
+                  </NavLink>
+                </Nav.Link>
+
+                {/* <Nav.Link> */}
+                  <NavLink activeClassName="active2" to="/contact">
+                    CONTACT
+                  </NavLink>
+                {/* </Nav.Link> */}
+
+                {/* <NavDropdown title="Projects" id="navbarScrollingDropdown">
+                  <NavDropdown.Item>
+                    <Link to="design-projects">Design Projects</Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="construction-projects">Construction Projects</Link>
+                  </NavDropdown.Item>
+                 </NavDropdown> */}
+              </Nav>
+
+              {/* <Form className="d-flex">
+                <Form.Control
+                  type="search"
+                  placeholder="Search"
+                  className="me-2"
+                  aria-label="Search"
+                />
+                <Button variant="outline-success">Search</Button>
+              </Form> */}
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      </div>
     </>
   );
 }

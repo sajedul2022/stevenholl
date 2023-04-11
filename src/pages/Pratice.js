@@ -122,67 +122,93 @@ export default function Pratice() {
           >
             <div className="pratice-content">
               <div className="row">
-
                 {about.map((item, ids) => {
                   return (
                     <>
                       <div className="col-sm-12 col-md-12 col-lg-12 about">
-                        <div className="">
-                          {/* <div key={(ids = 1)} item={item} className=""> */}
-                            <div className="titleSec">
-                              <b>
-                                <h2>
-                                  Focused on sustainability, human well-being,
-                                  and adaptability sustainability, human well-being,
-                                  and adaptability. Human well-being,
-                                  and adaptability
-                                </h2>
-                              </b>
-                            </div>
+                        {/* <div key={(ids = 1)} item={item} className=""> */}
 
-                            <p>
-                              Today's architecture is focused on sustainability,
-                              human well-being, and adaptability. focused on sustainability,
-                              human well-being, and adaptabilityfocused on sustainability,
-                              human well-being, and adaptability
-                            </p>
-                          </div>
+                        <div className="sub-paragraph">
+                          <article
+                            id="post-5833"
+                            className="post-5833 page type-page status-publish has-post-thumbnail hentry"
+                          >
+                            <div className="entry-content">
+                              <h4>
+                                Focused on sustainability, human well-being, and
+                                adaptability sustainability.
+                              </h4>
+
+                              
+
+                              <p>
+                                human well-being, and adaptability. Human
+                                well-being, and adaptabilityhuman well-being,
+                                and adaptability. Human well-being, and
+                                adaptabilityhuman well-being, and adaptability.
+                                Human well-being, and adaptability
+                              </p>
+
+                              <div className="img-wrap">
+                                <img
+                                  //   src={`${MAIN_PATH}/images/${item.image_01}`}
+                                  src="http://127.0.0.1:8000/images/20230410072328.jpg"
+                                  alt={item.name}
+                                />
+                              </div>
+                              <hr />
+                            </div>
+                          </article>
+                        </div>
+
                         {/* </div> */}
                       </div>
                     </>
-                    
                   );
                 })}
-                
+
                 {Office.map((item, ids) => {
                   return (
                     <>
-                      <div className="col-sm-12 col-md-12 col-lg-12 about">
+                      <div className="col-sm-12 col-md-12 col-lg-12 office">
                         <div className="">
                           <div key={(ids = 1)} item={item} className="">
+                            <div className="sub-paragraph">
+                              <article
+                                id="post-5833"
+                                className="post-5833 page type-page status-publish has-post-thumbnail hentry"
+                              >
+                                <div className="entry-content">
+                                  <h4>
+                                    Focused on sustainability, human well-being,
+                                    and adaptability sustainability.
+                                  </h4>
 
-                            <div className="titleSec">
-                              <b>
-                                <h2>
-                                    {item.title}
-                                </h2>
-                              </b>
+                                  <p>
+                                    human well-being, and adaptability. Human
+                                    well-being, and adaptabilityhuman
+                                    well-being, and adaptability. Human
+                                    well-being, and adaptabilityhuman
+                                    well-being, and adaptability. Human
+                                    well-being, and adaptability
+                                  </p>
+                                  <div className="img-wrap">
+                                    <img
+                                      //   src={`${MAIN_PATH}/images/${item.image_01}`}
+                                      src="http://127.0.0.1:8000/images/20230410072328.jpg"
+                                      alt={item.name}
+                                    />
+                                  </div>
+                                  <hr />
+                                </div>
+                              </article>
                             </div>
-
-                            <p>
-                              Today's architecture is focused on sustainability,
-                              human well-being, and adaptability. focused on sustainability,
-                              human well-being, and adaptabilityfocused on sustainability,
-                              human well-being, and adaptability
-                            </p>
                           </div>
                         </div>
                       </div>
                     </>
                   );
                 })}
-
-
 
                 {History.map((item, ids) => {
                   return (
@@ -220,7 +246,6 @@ export default function Pratice() {
                     </>
                   );
                 })}
-
               </div>
             </div>
           </div>

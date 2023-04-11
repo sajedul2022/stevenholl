@@ -1,4 +1,33 @@
 /*  ================================== custom css ============================== */
+body,
+button,
+input,
+select,
+optgroup,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  /* font-family: "Gothic A1", sans-serif !important; */
+  /* font-family: 'Nanum Gothic Coding', monospace !important; */
+  font-family: "Roboto", sans-serif;
+}
+
+a:active {
+  outline: 0 !important;
+  outline-color: transparent !important;
+  outline-style: none !important;
+}
+a {
+  outline: 0 !important;
+  outline-color: transparent !important;
+  outline-style: none !important;
+}
+
 
 /* banner text  */
 .item h2 a,
@@ -71,10 +100,10 @@ button.accordion-button {
   margin-right: -50px;
 }
 
-.single-carousel-out a.carousel-control-prev:hover, .single-carousel a.carousel-control-next:hover{
-  background-color: rgba(0,0,0,.2);
+.single-carousel-out a.carousel-control-prev:hover,
+.single-carousel a.carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.2);
   font-weight: 800;
- 
 }
 
 /* table menu  */
@@ -169,14 +198,16 @@ tbody.r-width a {
 
 /* content body */
 
+
 .menu button {
   background-color: transparent;
   border: 0px solid transparent;
   color: #000;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 5px;
+  margin: 5px;
 }
-
 .titleSec a {
   font-size: 14px;
   text-decoration: none;
@@ -203,8 +234,6 @@ tbody.r-width a {
   padding: 70px;
 }
 
-
-
 .bgcommanSec {
   background-size: cover;
   width: 100%;
@@ -225,6 +254,7 @@ tbody.r-width a {
 }
 
 .pratice-content {
+  width: 100%;
   margin: 40px 0px;
   padding: 10px;
 }
@@ -234,27 +264,53 @@ tbody.r-width a {
   padding: 20px;
 }
 
+.about .sub-paragraph, .office .sub-paragraph {
+  max-width: 100%;
+}
 
+.contact .body-content {
+  margin: 10px 0px;
+  padding: 10px;
+}
+.contact .sub-paragraph {
+  max-width: 100%;
+}
+.contact {
+  z-index: 999999999999999999999;
+}
+.DevCompany a {
+  text-decoration: none;
+  color: green;
+}
+.DevCompany p {
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+  font-style: oblique;
+}
 
+.contact-add {
+  background-color: #040404ad;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  margin: 15px 0;
+}
+.contact-add p {
+  padding: 0px;
+  margin: 0px;
+}
 
+.contact-add a {
+  text-decoration: none;
+  color: #fff;
+}
 
+.contact-add a:hover {
+  color: #ffffff;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    /* ================ Responsive ================  */
+/* ================ Responsive ================  */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -272,7 +328,7 @@ tbody.r-width a {
     top: 300px;
   }
 
-  .single-carousel-out{
+  .single-carousel-out {
     display: none;
   }
 }
@@ -383,4 +439,32 @@ tbody.r-width a {
   .m-hero {
     display: none;
   }
+}
+
+.navbar-toggler::after{
+  
+}
+
+.navbar-toggler-icon {
+  
+  background-image: url(./images/close.gif) !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+
+
+.m-nav a:visited {
+  /* color: #000000; */
+}
+
+.m-nav .navbar-nav a a .active2 {
+  background-color: transparent !important;
+  font-weight: bold;
+}
+.m-nav .active {
+  font-weight: bold;
+  background-color: transparent !important;
+  color: #000;
 }

@@ -86,8 +86,8 @@ export default function ConstructionProjects() {
       <div
         className="bgcommanSec fullscreenslider"
         style={{
-          // backgroundImage: `url("assets/images/uploads/1.jpg")`,
-          backgroundColor: "#0025db7d"
+          // backgroundImage: `url("assets/images/uploads/1.jpg")`, #0025db7d
+          backgroundColor: " rgb(89 142 167 / 50%)" 
         }}
       ></div>
 
