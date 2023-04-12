@@ -8,7 +8,7 @@ export default function Colleagues() {
   console.log(getuserdata);
 
   const getdata = async () => {
-    const res = await fetch(`${API_PATH}/news-fe`, {
+    const res = await fetch(`${API_PATH}/colleagues-fe`, {
       // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/const-cat", {
       method: "GET",
       headers: {
@@ -79,21 +79,42 @@ export default function Colleagues() {
                                       alt={item.name}
                                     />
                                   </div>
+                                   {/* 'title' , 'vacancy', 'context', 'responsibilities', 'education', 'requirements' , 'salary', 'others', 'g_form',  'image' */}
+
 
                                   <p>
-                                    {" "}
-                                    <b>In Details: </b> <br />
-                                    {item.short_des}
-                                    <br />
-                                    {item.full_des}
-                                    <br />
+                                    <b>vacancy: </b> <br />
+                                    {item.vacancy}
                                   </p>
+                                  <p>
+                                    <b>Job context: </b> <br />
+                                    {item.context}
+                                  </p>
+                                  <p>
+                                    <b>Responsibilities: </b> <br />
+                                    {item.responsibilities}
+                                  </p>
+                                  
+                                  <p>
+                                    <b>Education: </b> <br />
+                                    {item.education}
+                                  </p>
+                                  <p>
+                                    <b>Requirements: </b> <br />
+                                    {item.requirements}
+                                  </p>
+                                  <p>
+                                    <b>Salary: </b> <br />
+                                    {item.salary}
+                                  </p>
+
                                   <hr />
                                   
-                                    <p> Read before applying and  With subject line (Post Name)</p>
-                                    <h4>
-                                    Mail your CV: hrd.akbh@gmail.com
-                                    </h4>
+                                    <p>
+                                    <span> Mail your CV: {item.others} <br></br>  OR
+                                    Apply Google Form:  <Link to={item.g_form}> {item.g_form} </Link></span> </p>
+                                    
+
                                 </div>
                               </article>
                             </div>

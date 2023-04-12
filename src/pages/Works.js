@@ -4,12 +4,12 @@ import Carousel from "react-bootstrap/Carousel";
 import { API_PATH, MAIN_PATH } from "../API_PATH";
 
 export default function ConstructionProjects() {
-  // cat design
+  // Works cat
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
 
   const getdata = async () => {
-    const res = await fetch(`${API_PATH}/const-cat`, {
+    const res = await fetch(`${API_PATH}/w-cat`, {
       // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/const-cat", {
       method: "GET",
       headers: {
@@ -50,14 +50,11 @@ export default function ConstructionProjects() {
 
   // ==============  Project  fetch  =========================
 
-  let params = useParams();
-
   const [getProject, setProject] = useState([]);
   console.log(getProject);
 
-  const getProjectdata = async (id) => {
+  const getProjectdata = async () => {
     const result = await fetch(`${API_PATH}/project-fe`, {
-      // const result = await fetch(`${API_PATH}/design-item/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -76,8 +73,22 @@ export default function ConstructionProjects() {
   };
 
   useEffect(() => {
-    getProjectdata(params.id);
+    getProjectdata();
   }, []);
+
+  // Use Effect
+
+  // const [data, setData2] = useState(null);
+
+  // useEffect(() => {
+  //     const fetchData = async () => {
+  //         const response = await fetch(`https://jsonplaceholder.typicode.com/albums/1`)
+  //         const newData = await response.json()
+  //         setData2(newData)
+  //     };
+
+  //     fetchData();
+  // }, []);
 
   // return
 
@@ -87,7 +98,7 @@ export default function ConstructionProjects() {
         className="bgcommanSec fullscreenslider"
         style={{
           // backgroundImage: `url("assets/images/uploads/1.jpg")`, #0025db7d
-          backgroundColor: " rgb(89 142 167 / 50%)" 
+          backgroundColor: " rgb(89 142 167 / 50%)",
         }}
       ></div>
 
@@ -119,41 +130,38 @@ export default function ConstructionProjects() {
             <div className="body-content">
               <div className="row">
                 {/* All  */}
-
-                {/* {getProject.map((item, ids) => {
-                return (
-                  <>
-                    <div className="col-sm-3 col-md-3 col-lg-3 project-item">
-                      <div className="">
-                        <div key={(ids = 1)} item={item} className="">
-                          <div className="img-wrap">
-                            <Link to={`/single-project/${item.id}`}>
-                              <img
-                                src={`${MAIN_PATH}/images/${item.image_01}`}
-                                alt={item.name}
-                              />
-                            </Link>
-                          </div>
-
-                          <div className="titleSec">
-                            <h2>
+                {getProject.map((item, ids) => {
+                  return (
+                    <>
+                      <div className="col-sm-3 col-md-3 col-lg-3 project-item">
+                        <div className="">
+                          <div key={(ids = 1)} item={item} className="">
+                            <div className="img-wrap">
                               <Link to={`/single-project/${item.id}`}>
-                                {item.name}
+                                <img
+                                  src={`${MAIN_PATH}/images/${item.image_01}`}
+                                  alt={item.name}
+                                />
                               </Link>
-                            </h2>
+                            </div>
+
+                            <div className="titleSec">
+                              <h2>
+                                <Link to={`/single-project/${item.id}`}>
+                                  {item.name}
+                                </Link>
+                              </h2>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </>
-                );
-                })} */}
-
+                    </>
+                  );
+                })}
                 {users.map((item, ids) => {
                   return (
                     <>
                       <div className="col-sm-3 col-md-3 col-lg-3  project-item ">
-
                         <div className="">
                           <div key={(ids = 1)} item={item} className="">
                             <div className="img-wrap">
@@ -194,7 +202,6 @@ export default function ConstructionProjects() {
                               </h2>
                             </div>
                         </div> */}
-
                       </div>
                     </>
                   );
