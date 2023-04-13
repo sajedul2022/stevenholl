@@ -113,8 +113,7 @@ export default function Colleagues() {
                                     <p>
                                     <span> Mail your CV: {item.others} <br></br>  OR
                                     Apply Google Form:  <Link to={item.g_form}> {item.g_form} </Link></span> </p>
-                                    
-
+                                  
                                 </div>
                               </article>
                             </div>

@@ -4,12 +4,12 @@ import Carousel from "react-bootstrap/Carousel";
 import { API_PATH, MAIN_PATH } from "../API_PATH";
 
 export default function People() {
-  // cat design
+  // People cat
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
 
   const getdata = async () => {
-    const res = await fetch(`${API_PATH}/const-cat`, {
+    const res = await fetch(`${API_PATH}/p-cat`, {
       // const res = await fetch("https://inspace.bdprogrammers.com/admin/api/const-cat", {
       method: "GET",
       headers: {
@@ -36,7 +36,7 @@ export default function People() {
 
   const handleClick = async (id) => {
     try {
-      const response = await fetch(`${API_PATH}/cat_project/${id}`);
+      const response = await fetch(`${API_PATH}/cat_people/${id}`);
       // const response = fetch(`https://inspace.bdprogrammers.com/admin/api/cat_project/${id}`);
       const data = await response.json();
       console.log(data);
@@ -48,7 +48,7 @@ export default function People() {
 
   const [users, setData] = useState([]);
 
-  // ==============  Project  fetch  =========================
+  // ==============  Peole  fetch  =========================
 
   let params = useParams();
 
@@ -156,9 +156,10 @@ export default function People() {
                         <div className="">
                           <div key={(ids = 1)} item={item} className="">
                             <div className="img-wrap">
-                              <Link to={`/single-project/${item.id}`}>
+                              {/* <Link to={`/single-project/${item.id}`}> */}
+                              <Link>
                                 <img
-                                  src={`${MAIN_PATH}/images/${item.image_01}`}
+                                  src={`${MAIN_PATH}/images/${item.image}`}
                                   alt={item.name}
                                 />
                               </Link>
@@ -166,10 +167,11 @@ export default function People() {
 
                             <div className="titleSec">
                               <h2>
-                                <Link to={`/single-project/${item.id}`}>
+                                <Link >
                                   {item.name}
                                 </Link>
                               </h2>
+                              <p>{item.description}</p>
                             </div>
                           </div>
                         </div>

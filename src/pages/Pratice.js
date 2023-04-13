@@ -4,7 +4,8 @@ import Carousel from "react-bootstrap/Carousel";
 import { API_PATH, MAIN_PATH } from "../API_PATH";
 
 export default function Pratice() {
-  // cat design
+
+  // use effect 
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
 
@@ -33,10 +34,12 @@ export default function Pratice() {
   }, []);
 
   // About click event
+  const [toggle, setToggle] = useState(true);
+
   const handleClickAbout = async () => {
     setToggle(!toggle);
     try {
-      const response = await fetch(`${API_PATH}/project-fe`);
+      const response = await fetch(`${API_PATH}/about-fe`);
       // const response = fetch(`https://inspace.bdprogrammers.com/admin/api/cat_project/${id}`);
       const data = await response.json();
       console.log(data);
@@ -47,7 +50,6 @@ export default function Pratice() {
   };
 
   const [about, setabout] = useState([]);
-  const [toggle, setToggle] = useState(true);
 
   //   Office  click event
 
@@ -55,7 +57,7 @@ export default function Pratice() {
     setToggle(!toggle);
 
     try {
-      const response = await fetch(`${API_PATH}/news-fe`);
+      const response = await fetch(`${API_PATH}/about`);
       // const response = fetch(`https://inspace.bdprogrammers.com/admin/api/cat_project/${id}`);
       const data = await response.json();
       console.log(data);
@@ -72,7 +74,7 @@ export default function Pratice() {
   const handleClickHistory = async () => {
     setToggle(!toggle);
     try {
-      const response = await fetch(`${API_PATH}/const-cat`);
+      const response = await fetch(`${API_PATH}/project-fe`);
       // const response = fetch(`https://inspace.bdprogrammers.com/admin/api/cat_project/${id}`);
       const data = await response.json();
       console.log(data);
@@ -116,43 +118,34 @@ export default function Pratice() {
             </div>
           </div>
 
-          <div
-            className="col-sm-8 col-md-8 col-lg-8"
-            style={{ display: toggle ? "block" : "none" }}
-          >
+          <div className="col-sm-8 col-md-8 col-lg-8">
             <div className="pratice-content">
               <div className="row">
+  
                 {about.map((item, ids) => {
                   return (
                     <>
-                      <div className="col-sm-12 col-md-12 col-lg-12 about">
-                        {/* <div key={(ids = 1)} item={item} className=""> */}
+                      <div className="col-sm-12 col-md-12 col-lg-12 about" >
+                        <div key={(ids = 1)} item={item} className="">
 
                         <div className="sub-paragraph">
+                        <h3 className="text-center" > About US  </h3>
                           <article
                             id="post-5833"
                             className="post-5833 page type-page status-publish has-post-thumbnail hentry"
                           >
                             <div className="entry-content">
-                              <h4>
-                                Focused on sustainability, human well-being, and
-                                adaptability sustainability.
-                              </h4>
-
-                              
-
+                              <h5>
+                                {item.short_des}
+                              </h5>
                               <p>
-                                human well-being, and adaptability. Human
-                                well-being, and adaptabilityhuman well-being,
-                                and adaptability. Human well-being, and
-                                adaptabilityhuman well-being, and adaptability.
-                                Human well-being, and adaptability
+                                {item.full_des}
                               </p>
 
                               <div className="img-wrap">
                                 <img
-                                  //   src={`${MAIN_PATH}/images/${item.image_01}`}
-                                  src="http://127.0.0.1:8000/images/20230410072328.jpg"
+                                    src={`${MAIN_PATH}/images/${item.image}`}
+                                  // src="http://127.0.0.1:8000/images/20230410072328.jpg"
                                   alt={item.name}
                                 />
                               </div>
@@ -161,7 +154,7 @@ export default function Pratice() {
                           </article>
                         </div>
 
-                        {/* </div> */}
+                        </div>
                       </div>
                     </>
                   );
@@ -170,10 +163,11 @@ export default function Pratice() {
                 {Office.map((item, ids) => {
                   return (
                     <>
-                      <div className="col-sm-12 col-md-12 col-lg-12 office">
+                      <div className="col-sm-12 col-md-12 col-lg-12 office" >
                         <div className="">
                           <div key={(ids = 1)} item={item} className="">
                             <div className="sub-paragraph">
+                            <h3 className="text-center" > OFFICE   </h3>
                               <article
                                 id="post-5833"
                                 className="post-5833 page type-page status-publish has-post-thumbnail hentry"
@@ -213,7 +207,7 @@ export default function Pratice() {
                 {History.map((item, ids) => {
                   return (
                     <>
-                      <div className="col-sm-3 col-md-3 col-lg-3 history ">
+                      <div className="col-sm-3 col-md-3 col-lg-3 history " style={{ display: toggle ? "block" : "none" }}>
                         <div className="">
                           <div key={(ids = 1)} item={item} className="">
                             <div className="img-wrap">
@@ -231,8 +225,8 @@ export default function Pratice() {
 
                             <div className="titleSec">
                               <b>
-                                {" "}
-                                <h2>{item.name}</h2>{" "}
+                                
+                                <h2>{item.name}</h2>
                               </b>
                             </div>
 

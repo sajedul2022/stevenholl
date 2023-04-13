@@ -285,3 +285,8 @@ OR
 <NavLink  activeClassName="active" to="/news">
       PRACTICE
 </NavLink>
+
+                        // Cpanel
+                        
+https://www.inspaceatelier.com
+https://www.inspaceatelier.com/admin
