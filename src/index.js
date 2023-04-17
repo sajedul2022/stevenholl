@@ -17,6 +17,8 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import History from "./pages/History";
 import Office from "./pages/Office";
+import PeopleCat from "./pages/PeopleCat";
+import SinglePeople from "./category/SinglePeople";
 
 // import NewsEvents from "./pages/NewsEvents";
 // import IdeaPhenomena from "./pages/IdeaPhenomena";
@@ -32,6 +34,8 @@ export default function RouterApp() {
           <Route index element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/people" element={<People />} />
+          {/* <Route path="/peoples/:id" element={<PeopleCat />} /> */}
+          <Route path="/people/:id" element={<SinglePeople />} />
           <Route path="/pratice" element={<Pratice />} />
           <Route path="/about" element={<About />} />
           <Route path="/office" element={<Office />} />

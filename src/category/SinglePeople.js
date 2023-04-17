@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
-import Carousel from "react-bootstrap/Carousel";
+import { Link } from "react-router-dom";
 import { API_PATH, MAIN_PATH } from "../API_PATH";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function People() {
+export default function SinglePeople() {
+    
   // People cat
-
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
 
@@ -48,38 +48,36 @@ export default function People() {
 
   const [users, setData] = useState([]);
 
-  // ==============  People  fetch  =========================
+  // people cat wise data
 
   let params = useParams();
+  let navigate = useNavigate();
 
-  const [getPeople, setPeople] = useState([]);
-  console.log(getPeople);
+  const [getPeopledata, setPeople] = useState([]);
+  console.log(getPeopledata);
 
-  const getProjectdata = async (id) => {
-    const result = await fetch(`${API_PATH}/people-fe`, {
-      // const result = await fetch(`${API_PATH}/design-item/${id}`, {
+  const getdata2 = async (id) => {
+    const res = await fetch(`${API_PATH}/cat_people/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
 
-    const datas = await result.json();
-    console.log(datas);
+    const data = await res.json();
+    console.log(data);
 
-    if (result.status === 422 || !datas) {
+    if (res.status === 422 || !data) {
       console.log("error ");
     } else {
-      setPeople(datas);
-      console.log("get datas22");
+      setPeople(data);
+      console.log("get data");
     }
   };
 
   useEffect(() => {
-    getProjectdata(params.id);
+    getdata2(params.id);
   }, []);
-
-  // return
 
   return (
     <>
@@ -100,16 +98,15 @@ export default function People() {
                   return (
                     <>
                       <li key={id} item={element} id="menu-item-5915">
-                        {/* <Link to={`/people/${element.id}`}>{element.name}</Link>
                         <button onClick={() => handleClick(element.id)}>
                           {element.name}
-                        </button> */}
+                        </button>
 
-                        <button>
+                        {/* <button>
                           <Link to={`/people/${element.id}`}>
                             {element.name}
                           </Link>
-                        </button>
+                        </button> */}
                       </li>
                     </>
                   );
@@ -121,16 +118,16 @@ export default function People() {
           <div className="col-sm-8 col-md-8 col-lg-8 ">
             <div className="body-content">
               <div className="row">
-                {/* All  */}
 
-                {getPeople.map((item, ids) => {
+                {/* ID data */}
+                
+                {getPeopledata.map((item, ids) => {
                   return (
                     <>
-                      <div className="col-sm-3 col-md-3 col-lg-3  project-item ">
+                      <div className="col-sm-3 col-md-3 col-lg-3  project-item  displayOff">
                         <div className="">
                           <div key={(ids = 1)} item={item} className="">
                             <div className="img-wrap">
-                              {/* <Link to={`/single-project/${item.id}`}> */}
                               <Link>
                                 <img
                                   src={`${MAIN_PATH}/images/${item.image}`}
@@ -151,6 +148,9 @@ export default function People() {
                     </>
                   );
                 })}
+                
+
+                {/* handle click  */}
 
                 {users.map((item, ids) => {
                   return (
@@ -180,7 +180,7 @@ export default function People() {
                     </>
                   );
                 })}
-                
+
               </div>
             </div>
           </div>

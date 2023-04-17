@@ -9,7 +9,7 @@ export default function Pratice() {
   console.log(getuserdata);
 
   const getdata = async () => {
-    const res = await fetch(`${API_PATH}/about-fe`, {
+    const res = await fetch(`${API_PATH}/office-fe`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -145,20 +145,20 @@ export default function Pratice() {
               <div className="row">
                 
 
-                {Office.map((item, ids) => {
+                {getuserdata.map((item, ids) => {
                   return (
                     <>
                       <div className="col-sm-12 col-md-12 col-lg-12 office">
                         <div className="">
                           <div key={(ids = 1)} item={item} className="">
                             <div className="sub-paragraph">
-                              <h3 className="text-center"> OFFICE </h3>
+                              <h3 className="text-center"> Office | About | History </h3>
                               <article
                                 id="post-5833"
                                 className="post-5833 page type-page status-publish has-post-thumbnail hentry"
                               >
                                 <div className="entry-content">
-                                  <h4>{item.short_des}</h4>
+                                  {/* <h4>{item.short_des}</h4> */}
 
                                   <p>{item.full_des}</p>
                                   <div className="img-wrap">
