@@ -14,6 +14,9 @@ import People from "./pages/People";
 import Pratice from "./pages/Pratice";
 import Colleagues from "./pages/Colleagues";
 import Contact from "./pages/Contact";
+import About from "./pages/About";
+import History from "./pages/History";
+import Office from "./pages/Office";
 
 // import NewsEvents from "./pages/NewsEvents";
 // import IdeaPhenomena from "./pages/IdeaPhenomena";
@@ -30,6 +33,11 @@ export default function RouterApp() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/people" element={<People />} />
           <Route path="/pratice" element={<Pratice />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/office" element={<Office />} />
+          <Route path="/history" element={<History />} />
+
+
           <Route path="/colleagues" element={<Colleagues />} />
 
           <Route path="/works" element={<Works />} />

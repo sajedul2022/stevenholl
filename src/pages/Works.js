@@ -50,8 +50,26 @@ export default function ConstructionProjects() {
 
   // ==============  Project  fetch  =========================
 
+  // const initialState = fetch(`${API_PATH}/project-fe`, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
+  
+
+  // const removeSecond = () => {
+  //   setProject(() =>
+  //     initialState
+  //   );
+  // };
+
+  // const [fruits, setFruits] = useState(initialState);
+  // const [getProject, setProject] = useState([initialState]);
+
+
   const [getProject, setProject] = useState([]);
-  console.log(getProject);
+  // console.log(getProject);
 
   const getProjectdata = async () => {
     const result = await fetch(`${API_PATH}/project-fe`, {
@@ -115,7 +133,7 @@ export default function ConstructionProjects() {
                                 {element.name}
                               </Link> */}
 
-                        <button onClick={() => handleClick(element.id)}>
+                        <button onClick={() => handleClick(element.id)} >
                           {element.name}
                         </button>
                       </li>
@@ -130,7 +148,7 @@ export default function ConstructionProjects() {
             <div className="body-content">
               <div className="row">
                 {/* All  */}
-                {getProject.map((item, ids) => {
+                {/* {getProject.map((item, ids) => {
                   return (
                     <>
                       <div className="col-sm-3 col-md-3 col-lg-3 project-item">
@@ -157,7 +175,8 @@ export default function ConstructionProjects() {
                       </div>
                     </>
                   );
-                })}
+                })} */}
+
                 {users.map((item, ids) => {
                   return (
                     <>

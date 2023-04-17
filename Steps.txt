@@ -282,6 +282,11 @@ className={splitLocation[1] === "" ? "active" : ""}
 
 OR
 
+<NavLink exact activeClassName="active"  to="works">
+  WORKS
+</NavLink>
+
+
 <NavLink  activeClassName="active" to="/news">
       PRACTICE
 </NavLink>

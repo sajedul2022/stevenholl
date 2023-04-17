@@ -55,18 +55,16 @@ export default function Header() {
               <tr>
                 <td className={splitLocation[1] === "works" ? "active" : ""}>
                   <NavLink
-                    exact
-                    activeClassName="active"
-                    className="fr-1"
+                    
                     to="works"
                   >
-                    WORKS
+                    Works
                   </NavLink>
                 </td>
                 <td className="fr-blank"> </td>
                 <td className={splitLocation[1] === "pratice" ? "active" : ""}>
-                  <NavLink activeClassName="active" to="/pratice">
-                    PRACTICE
+                  <NavLink  to="/pratice">
+                    Pratice
                   </NavLink>
                 </td>
                 <td className="fr-blank2"></td>
@@ -77,7 +75,7 @@ export default function Header() {
                 <td className="sr-blank"></td>
                 <td className={splitLocation[1] === "people" ? "active" : ""}>
                   <Link className="sr-1" to="/people">
-                    PEOPLE
+                    People
                   </Link>
                 </td>
                 <td className="sr-blank2"></td>
@@ -85,14 +83,12 @@ export default function Header() {
                   className={splitLocation[1] === "colleagues" ? "active" : ""}
                 >
                   <Link className="sr-1" to="/colleagues">
-                    {" "}
-                    FUTURE COLLEAGUES{" "}
+                  Future Colleagues
                   </Link>
                 </td>
                 <td className={splitLocation[1] === "contact" ? "active" : ""}>
                   <Link className="sr-1" to="/contact">
-                    {" "}
-                    CONTACT{" "}
+                    Contact
                   </Link>
                 </td>
               </tr>
@@ -151,7 +147,7 @@ export default function Header() {
                           className="fr-1"
                           to="/"
                         >
-                          HOME
+                          Home
                         </NavLink>
                       </Nav.Link>
 
@@ -161,31 +157,31 @@ export default function Header() {
                           className="fr-1"
                           to="works"
                         >
-                          WORKS
+                          Works
                         </NavLink>
                       </Nav.Link>
 
                       <Nav.Link>
                         <NavLink activeClassName="active2" to="/pratice">
-                          PRACTICE
+                          Pratice
                         </NavLink>
                       </Nav.Link>
 
                       <Nav.Link>
                         <NavLink activeClassName="active2" to="/people">
-                          PEOPLE
+                        People
                         </NavLink>
                       </Nav.Link>
 
                       <Nav.Link>
                         <NavLink activeClassName="active2" to="/colleagues">
-                          FUTURE COLLEAGUES
+                          Future Colleagues
                         </NavLink>
                       </Nav.Link>
 
                       {/* <Nav.Link> */}
                       <NavLink activeClassName="active2" to="/contact">
-                        CONTACT
+                      Contact
                       </NavLink>
                       {/* </Nav.Link> */}
 

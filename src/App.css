@@ -124,6 +124,7 @@ tbody.r-width tr td {
   border: 1px solid #fff;
   color: #fff;
   padding: 2px;
+  /* background-color: rgba(0, 0, 0, 0.1) !important; */
 }
 
 table.table.table-bordered {
@@ -139,31 +140,50 @@ td.fr-1,
 .sr-1,
 .sr-2,
 .sr-3 {
-  background-color: rgba(0, 0, 0, 0.1.5) !important;
+  /* background-color: rgba(0, 0, 0, 0.2) !important; */
 }
 
 td.fr-blank {
   border-top: 0px solid transparent !important;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: transparent !important;
+
 }
 td.fr-blank2 {
   border: 0px solid transparent !important;
+  background-color: transparent !important;
 }
 td.fr-blank3 {
   border: 0px solid transparent !important;
+  background-color: transparent !important;
 }
 
 td.sr-blank {
   border: 0px solid !important;
+  background-color: transparent !important;
 }
 
 td.sr-blank2 {
   border: 0px solid transparent !important;
+  background-color: transparent !important;
 }
 
 tbody.r-width a {
   color: #fff;
   text-decoration: none;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.menu li button {
+  text-transform: capitalize;
+}
+
+tbody.r-width a:hover {
+  color: #0c0c0c;
+  text-decoration: none;
+  text-transform: capitalize;
+  
 }
 
 /* logo */
@@ -309,6 +329,26 @@ tbody.r-width a {
 .contact-add a:hover {
   color: #ffffff;
 }
+
+
+.history{
+  max-width: 100%;
+}
+
+.pratice-menu a {
+  color: #000;
+  text-decoration: none;
+}
+
+.pratice-menu .active {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  background-color: transparent !important;
+}
+
+
+
 
 /* ================ Responsive ================  */
 
@@ -467,4 +507,8 @@ tbody.r-width a {
   font-weight: bold;
   background-color: transparent !important;
   color: #000;
+}
+
+.colleagues{
+  z-index: 9999999999999999999;
 }

@@ -143,19 +143,25 @@ export default function SingleProject() {
                         </Accordion.Body>
                       </Accordion.Item> */}
 
-                      <Accordion.Item eventKey="2">
+                      {/* <Accordion.Item eventKey="2">
                         <Accordion.Header>Videos</Accordion.Header>
                         <Accordion.Body>
-                          Watch Videos
+                          Watch Videos: 
                           <script>let video = {element.video}</script>
                           <Player
                             playsInline
                             poster="/assets/poster.png"
-                            src={element.video}
-                            // src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                            // src={element.video}
+                            src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
                           />
+
+                            <video width="100%" controls id="myvideo">
+                              <source src={element.video} type="video/mp4"/>
+                              Your browser does not support the video tag.
+                            </video>
+
                         </Accordion.Body>
-                      </Accordion.Item>
+                      </Accordion.Item> */}
 
                       <Accordion.Item eventKey="3">
                         <Accordion.Header>Credits</Accordion.Header>

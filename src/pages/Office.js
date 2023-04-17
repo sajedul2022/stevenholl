@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useLocation, useParams } from "react-router-dom";
-import Carousel from "react-bootstrap/Carousel";
+import { NavLink } from "react-router-dom";
 import { API_PATH, MAIN_PATH } from "../API_PATH";
 
-export default function Pratice() {
-  // use effect
-  const [getuserdata, setUserdata] = useState([]);
-  console.log(getuserdata);
+export default function Office() {
+  // use effect about
+
+  const [Office, setOffice] = useState([]);
+  //   console.log(getAboutdata);
 
   const getdata = async () => {
     const res = await fetch(`${API_PATH}/about-fe`, {
@@ -22,7 +22,7 @@ export default function Pratice() {
     if (res.status === 422 || !data) {
       console.log("error ");
     } else {
-      setUserdata(data);
+      setOffice(data);
       console.log("get data");
     }
   };
@@ -30,61 +30,6 @@ export default function Pratice() {
   useEffect(() => {
     getdata();
   }, []);
-
-  // About click event
-  const [toggle, setToggle] = useState(true);
-
-  const handleClickAbout = async () => {
-    setToggle(!toggle);
-    try {
-      const response = await fetch(`${API_PATH}/about-fe`);
-      // const response = fetch(`https://inspace.bdprogrammers.com/admin/api/cat_project/${id}`);
-      const data = await response.json();
-      console.log(data);
-      setabout(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const [about, setabout] = useState([]);
-
-  //   Office  click event
-
-  const handleClickOffice = async () => {
-    setToggle(!toggle);
-
-    try {
-      const response = await fetch(`${API_PATH}/office-fe`);
-      // const response = fetch(`https://inspace.bdprogrammers.com/admin/api/cat_project/${id}`);
-      const data = await response.json();
-      console.log(data);
-      setOffice(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const [Office, setOffice] = useState([]);
-
-  //   History  click event
-
-  const handleClickHistory = async () => {
-    setToggle(!toggle);
-    try {
-      const response = await fetch(`${API_PATH}/history-fe`);
-      // const response = fetch(`https://inspace.bdprogrammers.com/admin/api/cat_project/${id}`);
-      const data = await response.json();
-      console.log(data);
-      setHistory(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const [History, setHistory] = useState([]);
-
-  // return
 
   return (
     <>
@@ -124,18 +69,6 @@ export default function Pratice() {
                     </NavLink>
                   </button>
                 </li>
-
-                {/* <li>
-                  <button onClick={() => handleClickAbout()}>ABOUT US</button>
-                </li>
-
-                <li>
-                  <button onClick={() => handleClickOffice()}>OFFICE</button>
-                </li>
-
-                <li>
-                  <button onClick={() => handleClickHistory()}>HISTORY</button>
-                </li> */}
               </ul>
             </div>
           </div>
@@ -143,9 +76,8 @@ export default function Pratice() {
           <div className="col-sm-8 col-md-8 col-lg-8">
             <div className="pratice-content">
               <div className="row">
-                
 
-                {Office.map((item, ids) => {
+              {Office.map((item, ids) => {
                   return (
                     <>
                       <div className="col-sm-12 col-md-12 col-lg-12 office">
@@ -179,7 +111,7 @@ export default function Pratice() {
                   );
                 })}
 
-                
+
               </div>
             </div>
           </div>
