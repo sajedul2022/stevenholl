@@ -46,10 +46,17 @@ export default function Header() {
 
   return (
     <>
+      <div
+        className="bgcommanSec fullscreenslider"
+        style={{
+          // backgroundImage: `url("assets/images/uploads/1.jpg")`,
+          backgroundColor: "#0025db7d",
+        }}
+      ></div>
+
       {/* menu  */}
 
       <div className="h-menu">
-        
         <div className="top-menuitem"> </div>
         <div className="top-menuitem1"> </div>
         <div className="top-menuitem2"> </div>
@@ -105,7 +112,7 @@ export default function Header() {
           <>
             {/* logo */}
             <div className="h-logo">
-              <Link id="show-hidden-menu" className="sha" to="/">
+              <Link to="/">
                 <img
                   className="b-logo "
                   // src="assets/images/logo.png"
@@ -114,6 +121,8 @@ export default function Header() {
                   alt="Logo"
                 />
               </Link>
+
+              
             </div>
           </>
         );

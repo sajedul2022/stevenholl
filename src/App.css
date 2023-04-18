@@ -269,10 +269,12 @@ tbody.r-width a:hover {
   padding: 5px;
   margin: 5px;
 }
+
 .titleSec a {
-  font-size: 14px;
+  font-size: 12px;
   text-decoration: none;
   color: #fff !important;
+  font-weight: 300;
 }
 
 .titleSec h2 {
@@ -387,6 +389,14 @@ tbody.r-width a:hover {
   font-weight: 700;
   background-color: transparent !important;
 }
+
+.menu-active {
+  color: #141414 !important;
+  font-weight: 900;
+  background-color: #04000030;
+  width: max-content;
+}
+
 .col-sm-4.col-md-4.col-lg-4.history {
   color: #fff;
 }
@@ -395,6 +405,53 @@ tbody.r-width a:hover {
   line-height: initial;
   font-size: 14px;
 }
+
+
+ul.menu li button, ul.menu li button a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 300;
+  text-transform: capitalize;
+  line-height: 14px;
+}
+.single-people p{
+  color: #fff;
+}
+
+.people-menu a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 300;
+  text-transform: capitalize;
+  line-height: 14px;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.hidden {
+  /* visibility: hidden; */
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

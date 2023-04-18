@@ -5,7 +5,6 @@ import { API_PATH, MAIN_PATH } from "../API_PATH";
 
 export default function People() {
   // People cat
-
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
 
@@ -33,6 +32,8 @@ export default function People() {
   }, []);
 
   // click event
+
+  const [show, setShow] = React.useState();
 
   const handleClick = async (id) => {
     try {
@@ -87,29 +88,36 @@ export default function People() {
         className="bgcommanSec fullscreenslider"
         style={{
           // backgroundImage: `url("assets/images/uploads/1.jpg")`,
-          backgroundColor: "#0025db7d",
+          backgroundColor: "#0000004d",
         }}
       ></div>
 
       <div className="container">
         <div className="row">
           <div className="col-sm-3 col-md-3 col-lg-3">
-            <div className="sub-menu">
+            <div className="sub-menu ">
               <ul className="menu">
                 {getuserdata.map((element, id) => {
                   return (
                     <>
-                      <li key={id} item={element} id="menu-item-5915">
-                        {/* <Link to={`/people/${element.id}`}>{element.name}</Link>
-                        <button onClick={() => handleClick(element.id)}>
-                          {element.name}
-                        </button> */}
+                      <li
+                        key={id}
+                        item={element}
+                        id="menu-item-5915"
+                        className="people-menu"
+                      >
+                        
+                        <li onClick={() => setShow(true)}>
+                          <button onClick={() => handleClick(element.id)}>
+                            {element.name}
+                          </button>
+                        </li>
 
-                        <button>
+                        {/* <button>
                           <Link to={`/people/${element.id}`}>
                             {element.name}
                           </Link>
-                        </button>
+                        </button> */}
                       </li>
                     </>
                   );
@@ -118,16 +126,15 @@ export default function People() {
             </div>
           </div>
 
-          <div className="col-sm-8 col-md-8 col-lg-8 ">
+          <div className="col-sm-8 col-md-8 col-lg-8 single-people">
             <div className="body-content">
               <div className="row">
                 {/* All  */}
-
                 {getPeople.map((item, ids) => {
                   return (
                     <>
                       <div className="col-sm-3 col-md-3 col-lg-3  project-item ">
-                        <div className="">
+                        <div className={`${show ? "hidden" : ""}`}  >
                           <div key={(ids = 1)} item={item} className="">
                             <div className="img-wrap">
                               {/* <Link to={`/single-project/${item.id}`}> */}
@@ -180,7 +187,6 @@ export default function People() {
                     </>
                   );
                 })}
-                
               </div>
             </div>
           </div>

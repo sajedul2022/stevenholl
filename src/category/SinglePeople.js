@@ -4,8 +4,8 @@ import { API_PATH, MAIN_PATH } from "../API_PATH";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function SinglePeople() {
-    
   // People cat
+  const [active, setActive] = useState(null);
   const [getuserdata, setUserdata] = useState([]);
   console.log(getuserdata);
 
@@ -34,7 +34,11 @@ export default function SinglePeople() {
 
   // click event
 
+  const [isVisible, setIsVisible] = useState(true);
+
   const handleClick = async (id) => {
+    setIsVisible((current) => !current);
+
     try {
       const response = await fetch(`${API_PATH}/cat_people/${id}`);
       // const response = fetch(`https://inspace.bdprogrammers.com/admin/api/cat_project/${id}`);
@@ -85,7 +89,7 @@ export default function SinglePeople() {
         className="bgcommanSec fullscreenslider"
         style={{
           // backgroundImage: `url("assets/images/uploads/1.jpg")`,
-          backgroundColor: "#0025db7d",
+          backgroundColor: "#0000004d",
         }}
       ></div>
 
@@ -97,8 +101,15 @@ export default function SinglePeople() {
                 {getuserdata.map((element, id) => {
                   return (
                     <>
-                      <li key={id} item={element} id="menu-item-5915">
-                        <button onClick={() => handleClick(element.id)}>
+                      <li
+                        key={id}
+                        item={element}
+                        id="menu-item-5915"
+                        onClick={() => setActive(element)}
+                        className={`${active == element && "menu-active"}`}
+                      >
+                        <button onClick={() => handleClick(element.id)}
+                        >
                           {element.name}
                         </button>
 
@@ -115,43 +126,10 @@ export default function SinglePeople() {
             </div>
           </div>
 
-          <div className="col-sm-8 col-md-8 col-lg-8 ">
+          <div className="col-sm-8 col-md-8 col-lg-8 single-people ">
             <div className="body-content">
               <div className="row">
-
-                {/* ID data */}
-                
-                {getPeopledata.map((item, ids) => {
-                  return (
-                    <>
-                      <div className="col-sm-3 col-md-3 col-lg-3  project-item  displayOff">
-                        <div className="">
-                          <div key={(ids = 1)} item={item} className="">
-                            <div className="img-wrap">
-                              <Link>
-                                <img
-                                  src={`${MAIN_PATH}/images/${item.image}`}
-                                  alt={item.name}
-                                />
-                              </Link>
-                            </div>
-
-                            <div className="titleSec">
-                              <h2>
-                                <Link>{item.name}</Link>
-                              </h2>
-                              <p>{item.description}</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  );
-                })}
-                
-
                 {/* handle click  */}
-
                 {users.map((item, ids) => {
                   return (
                     <>
@@ -181,6 +159,37 @@ export default function SinglePeople() {
                   );
                 })}
 
+                {/* ID data */}
+
+                {getPeopledata.map((item, ids) => {
+                  return (
+                    <>
+                      <div className="col-sm-3 col-md-3 col-lg-3  project-item  displayOff">
+                        <div className={isVisible ? "hidden" : "hidden"}>
+                          {/* <div className=""> */}
+
+                          <div key={(ids = 1)} item={item} className="">
+                            <div className="img-wrap">
+                              <Link>
+                                <img
+                                  src={`${MAIN_PATH}/images/${item.image}`}
+                                  alt={item.name}
+                                />
+                              </Link>
+                            </div>
+
+                            <div className="titleSec">
+                              <h2>
+                                <Link>{item.name}</Link>
+                              </h2>
+                              <p>{item.description}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  );
+                })}
               </div>
             </div>
           </div>

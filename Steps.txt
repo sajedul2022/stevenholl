@@ -259,7 +259,44 @@ export const MAIN_PATH = 'http://127.0.0.1:8000';
 // src={`${MAIN_PATH}/images/${item.logo}`}
 
 
-                              ============= Active class ==============
+
+                        // Cpanel
+                        
+https://www.inspaceatelier.com
+https://www.inspaceatelier.com/admin
+
+
+
+
+                                ====  Onclick Active class ====
+
+const [active, setActive] = useState(null)
+
+<li
+  key={item.id}
+
+  onClick={() => setActive(item)}
+  className={`list-group-item ${active == item && 'active'}`} 
+>
+
+  {item.name}
+</li>
+
+                      ===  Onclick Show/ hiddden ====
+
+
+ const [show, setShow] = React.useState();
+
+ <button  onClick={() => setShow(true)}>
+                Show
+  </button>
+
+
+ <div className={`${show ? "hidden" : ""}`}  >
+
+
+
+ =========== Menu ============= =========== Active class ==============
 
 import { useLocation } from "react-router-dom";
 
@@ -290,8 +327,3 @@ OR
 <NavLink  activeClassName="active" to="/news">
       PRACTICE
 </NavLink>
-
-                        // Cpanel
-                        
-https://www.inspaceatelier.com
-https://www.inspaceatelier.com/admin

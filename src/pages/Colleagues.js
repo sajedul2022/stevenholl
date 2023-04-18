@@ -39,7 +39,7 @@ export default function Colleagues() {
         className="bgcommanSec fullscreenslider"
         style={{
           // backgroundImage: `url("assets/images/uploads/1.jpg")`,
-          backgroundColor: "#0025db7d",
+          backgroundColor: "#0000004d",
         }}
       ></div>
 
